@@ -1,0 +1,21 @@
+{
+	"name": "svg-randomizer",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js",
+		"start-dev": "nodemon --inspect --trace-warnings server.js",
+		"start-https": "nodemon --inspect --trace-warnings server-https.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"csvtojson": "^2.0.10",
+		"express": "^4.17.1",
+		"fs-extra": "^9.1.0",
+		"https": "^1.0.0",
+		"path": "^0.12.7"
+	}
+}

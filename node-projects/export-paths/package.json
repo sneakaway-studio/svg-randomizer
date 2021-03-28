@@ -1,0 +1,16 @@
+{
+	"name": "export-paths",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"fs-extra": "^9.1.0",
+		"https": "^1.0.0",
+		"path": "^0.12.7"
+	}
+}

@@ -2,10 +2,8 @@
  *	Server - Require and start running app as server
  */
 
-// require main app
-const app = require('./app');
-// set port
-const port = process.env.PORT || 3000;
+// require main app and port (using destructuring)
+const [app, port] = require('./app');
 
 // start listening for requests
 app.listen(port, () => {

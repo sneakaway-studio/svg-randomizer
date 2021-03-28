@@ -2,10 +2,8 @@
  *	Server HTTPS - Require and start running app as server - A version that runs HTTPS
  */
 
-// require main app
-const app = require('./app');
-// set port
-const port = process.env.PORT || 3000;
+// require main app and port (using destructuring)
+const [app, port] = require('./app');
 
 // HTTPS dependencies
 const https = require('https');

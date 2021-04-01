@@ -15,9 +15,9 @@ app.use(Middleware.showRequests);
 
 // make whole dir 'public' for testing
 app.use(express.static('../../'));
-// // base dir
-// const assetBasePath = '/Users/owenmundy/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS';
-// app.use('/files', express.static(assetBasePath));
+// base dir
+const assetBasePath = '/Users/owenmundy/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS';
+app.use('/files', express.static(assetBasePath));
 
 
 // require routes file and pass context

@@ -17,12 +17,20 @@ const TOKEN_PATH = path.resolve(__dirname, 'token.json');
 var exports = module.exports = {};
 
 // export so we can call it as a module in another script
-exports.main = () => {
-	// Load client secrets from a local file.
-	fs.readFile(path.resolve(__dirname, 'credentials.json'), (err, content) => {
-		if (err) return console.log('Error loading client secret file:', err);
-		// Authorize a client with credentials, then call the Google Sheets API.
-		authorize(JSON.parse(content), handleData);
+exports.main = async () => {
+	// promisfy so calling script can await
+	return new Promise((resolve, reject) => {
+		// console.log("quickstart.main() called ");
+
+		// Load client secrets from a local file.
+		fs.readFile(path.resolve(__dirname, 'credentials.json'), (err, content) => {
+			if (err) return console.log('Error loading client secret file:', err);
+			// Authorize a client with credentials, then call the Google Sheets API.
+			authorize(JSON.parse(content), handleData);
+			setTimeout(function(){
+				resolve();
+			},2000);
+		});
 	});
 };
 // exports.main();
@@ -100,9 +108,14 @@ function handleData(auth) {
 		// spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 		// range: 'Class Data!A2:E',
 
-		// chasing-the-sun-data
-		spreadsheetId: '17otqd9huv10dl6SWly_0plhuYuP6RWqhODJfHhCmk7Y',
-		range: 'times!A4:S35',
+		// chasing-the-sun-data (old)
+		// spreadsheetId: '17otqd9huv10dl6SWly_0plhuYuP6RWqhODJfHhCmk7Y',
+		// range: 'times!A4:Z35',
+
+		// CTS-data
+		spreadsheetId: '1-VmzIyWNhzmaAiSLaPCoY6ZnJaxl3G_bxcljgXgxWKU',
+		range: 'times!A4:J100',
+
 	}, (err, res) => {
 		if (err) return console.log('The API returned an error: ' + err);
 		const rows = res.data.values;
@@ -123,6 +136,9 @@ function handleData(auth) {
 
 					// save json file
 					fs.writeFileSync(path.resolve(__dirname, './data/chasing-the-sun-data.json'), JSON.stringify(result));
+
+					// REPORT
+					console.log(`🐙 SPREADSHEET EXPORTED ... rows: ${result.length}`);
 				});
 
 		} else {

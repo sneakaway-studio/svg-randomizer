@@ -6,24 +6,16 @@ const fs = require('fs').promises;
 const path = require('path');
 const exportGoogleSheets = require('../export-google-sheets/quickstart.js');
 
-const
-	basePath = '/Users/owenmundy/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS',
-	assetFilesArr = {
-		'p1': `plants-svg/01/SVG/`,
-		'h1': `house-svg/01/SVG/`,
-		'p2': `plants-svg/02/SVG/`,
-		'h2': `house-svg/02/SVG/`,
-		'p3': `plants-svg/03/SVG/`,
-		'h3': `house-svg/03/SVG/`,
-	};
+const basePath = '/Users/owenmundy/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS';
 
-let dataArr = [];
+let finalObj = {},
+	dataArr = [];
 
 // MAIN
 async function main() {
+	console.log(`\n#############################################################################`);
 
-	let assetsFound = 0,
-		assetsFoundTotal = 0;
+
 
 	// 1. UPDATE DATA
 
@@ -39,45 +31,67 @@ async function main() {
 		return;
 	}
 
-	// 2. GET ALL ASSET PATHS
 
-	// loop through all rows (backwards so we can remove those we don't want to keep)
-	for (let i = dataArr.length; i >= 0; i--) {
-		// console.log(dataArr[i]);
-		// reset
-		assetsFound = 0;
-		// loop through all potential asset files to store
-		for (let assetPath in assetFilesArr) {
-			// if the value is set and > 0
-			if (dataArr[i] && dataArr[i][assetPath] && Number(dataArr[i][assetPath]) > 0) {
-				// console.log(dataArr[i].location1, assetPath);
 
-				// add the path
-				dataArr[i][assetPath + "FilesPath"] = `${dataArr[i].dir}/${assetFilesArr[assetPath]}`;
-				// add the filenames
-				dataArr[i][assetPath + "Files"] = await getFilesInDir(`${basePath}/${dataArr[i][assetPath + "FilesPath"]}`);
-				// add to count for report
-				assetsFound += dataArr[i][assetPath + "Files"].length;
-			}
+	// 2. LOOP THROUGH ALL TIMEZONES
+
+	let assetsFoundPerRow = 0,
+		assetsFoundPerRowTotal = 0,
+		currentTZ = "";
+
+	// loop through all rows
+	for (let i = 0; i < dataArr.length; i++) {
+		if (!dataArr[i]) continue;
+
+		// skip if no data
+		if (!dataArr[i].location) continue;
+		// only include those marked
+		if (!dataArr[i].include) continue;
+
+		// new timezone?
+		if (currentTZ !== dataArr[i].dir) {
+			currentTZ = dataArr[i].dir;
+
+			// log if there is data
+			// if (dataArr[i].location !== undefined) console.log(currentTZ);
 		}
-		if (assetsFound === 0)
-			// if no assets were added then delete this one
-			dataArr.splice(i, 1);
-		else
-			assetsFoundTotal += assetsFound;
+		let key = `${currentTZ}-${dataArr[i].num}-${dataArr[i].location}-${dataArr[i].object}`;
+		// console.log("   ", key);
+
+		finalObj[key] = {
+			location: dataArr[i].location,
+			plant: dataArr[i].plant,
+			fileCount: 0,
+			filePath: '',
+			fileNames: [],
+		};
+
+
+
+		// 3. GET ALL ASSET PATHS
+
+		// reset
+		assetsFoundPerRow = 0;
+
+		// add the path
+		finalObj[key].filePath = `${dataArr[i].dir}/${dataArr[i].num}/${dataArr[i].object}/SVG/`;
+		// add the filenames
+		finalObj[key].fileNames = await getFilesInDir(`${basePath}/${finalObj[key].filePath}`);
+		// add count
+		finalObj[key].fileCount = finalObj[key].fileNames.length;
+		// add to count for report
+		assetsFoundPerRow += finalObj[key].fileCount;
+
 	}
-	// console.log(dataArr);
+	console.log(finalObj);
 
 	// 3. WRITE THE DATA
-	await fs.writeFile(path.resolve(__dirname, './data/all-data.json'), JSON.stringify(dataArr));
+	await fs.writeFile(path.resolve(__dirname, './data/all-data.json'), JSON.stringify(finalObj));
 
 	// 4. REPORT
-	console.log(`
-#############################################################################
-🐋 DATA EXPORT FINISHED ... rows: ${dataArr.length}, assets: ${assetsFoundTotal}
-#############################################################################
-`);
+	console.log(`🐋 DATA EXPORT FINISHED ... rows: ${Object.keys(finalObj).length}, assets: ${assetsFoundPerRowTotal}`);
 
+	console.log(`#############################################################################\n`);
 }
 main();
 

@@ -8,6 +8,9 @@ fetch('node-projects/export-paths/data/all-data.json')
 		randomizer();
 	});
 
+
+	const basePath = '/Users/owenmundy/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS';
+
 let browser = {
 		w: window.innerWidth,
 		h: window.innerHeight,
@@ -39,12 +42,15 @@ async function randomizer() {
 
 	//
 	for (let i = 0; i < count; i++) {
-		let item = FS_Object.randomArrayIndex(data),
+		let item = FS_Object.randomObjProperty(data),
 			w = FS_Number.randomIntBetween(settings.w.min, settings.w.max),
 			h = FS_Number.randomIntBetween(settings.h.min, settings.h.max),
 			x = FS_Number.round((FS_Number.randomFloatBetween(0.3, 0.85) * browser.w) - (w / 2)),
 			y = FS_Number.round((FS_Number.randomFloatBetween(0.4, 0.85) * browser.h) - (h / 2)),
 			r = FS_Number.randomIntBetween(settings.r.min, settings.r.max);
+
+		// console.log("item", item);
+
 
 		colors = [
 			// FS_Object.randomArrayIndex(item.colors),
@@ -54,8 +60,8 @@ async function randomizer() {
 		];
 		// console.log(browser, w, h, x, y, r);
 
-		let filePath = `${item.dir}/${data.svgPath}${FS_Object.randomArrayIndex(item.files)}`;
-		console.log(filePath);
+		let filePath = `/files/${item.filePath}${FS_Object.randomArrayIndex(item.fileNames)}`;
+		// console.log(filePath);
 
 		files.push(`<img
 				style="width: ${w}px; height: ${h}px; top: ${y}px; left: ${x}px; transform: rotate(${r}deg);"

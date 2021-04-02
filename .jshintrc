@@ -11,5 +11,6 @@
 		"$": false,
 		"FS_Object": false,
 		"FS_Number": false
-	}
+	},
+	"-W079": false
 }

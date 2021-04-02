@@ -4,7 +4,7 @@
 
 const fs = require('fs').promises;
 const path = require('path');
-const exportGoogleSheets = require('../export-google-sheets/quickstart.js');
+
 
 const basePath = '/Users/owenmundy/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS';
 
@@ -19,10 +19,21 @@ async function main() {
 
 	// 1. UPDATE DATA
 
+	// the google sheets api method ...
+	// // require file
+	// const exportGoogleSheets = require('../export-google-sheets/quickstart.js');
+	// // run export-google-sheets
+	// await exportGoogleSheets.main();
+	// // get downloaded file and parse json data
+	// dataArr = JSON.parse(await fs.readFile('../export-google-sheets/data/chasing-the-sun-data.json', 'utf8'));
+
+
+	// the google-sheets as CSV method 
+
+	// require file
+	const exportGoogleSheets = require('../export-google-sheets');
 	// run export-google-sheets
-	await exportGoogleSheets.main();
-	// get downloaded file and parse json data
-	dataArr = JSON.parse(await fs.readFile('../export-google-sheets/data/chasing-the-sun-data.json', 'utf8'));
+	dataArr = await exportGoogleSheets.getData();
 	// console.log(dataArr);
 
 	// make sure data is imported
@@ -30,6 +41,8 @@ async function main() {
 		console.log("NO DATA FOUND");
 		return;
 	}
+
+
 
 
 

@@ -1,0 +1,17 @@
+
+
+// Sharing constants between node.js app and web app
+// https://gist.github.com/drmikecrowe/4bf0938ea73bf704790f
+
+/* jshint ignore:start */
+(function(window){
+    var globals = {
+		BASE_PATH: '/Users/owenmundy/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS'
+    };
+    if ( typeof module === 'object' && module && typeof module.exports === 'object' ) {
+        module.exports = globals;
+    } else {
+        window.globals = globals;
+    }
+})( this );
+/* jshint ignore:end */

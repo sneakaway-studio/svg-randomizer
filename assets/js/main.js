@@ -8,8 +8,8 @@ fetch('node-projects/export-paths/data/all-data.json')
 		randomizer();
 	});
 
-
-	const basePath = '/Users/owenmundy/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS';
+const basePath = globals.BASE_PATH;
+// console.log("globals",globals)
 
 let browser = {
 		w: window.innerWidth,

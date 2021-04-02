@@ -2,11 +2,12 @@
  *	Write all the filenames
  */
 
+
 const fs = require('fs').promises;
 const path = require('path');
 
-
-const basePath = '/Users/owenmundy/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS';
+const globals = require('../../assets/js/globals.js');
+const basePath = globals.BASE_PATH;
 
 let finalObj = {},
 	dataArr = [];
@@ -98,7 +99,7 @@ async function main() {
 		if (dataArr[i].hex2) finalObj[key].colors.push(dataArr[i].hex2);
 		if (dataArr[i].hex3) finalObj[key].colors.push(dataArr[i].hex3);
 		// add to count for report
-		assetsFoundPerRow += finalObj[key].fileCount;
+		assetsFoundPerRowTotal += finalObj[key].fileCount;
 
 	}
 	console.log(finalObj);

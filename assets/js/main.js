@@ -76,9 +76,9 @@ async function randomizer() {
 	// console.log($(".container").html());
 	console.log("colors", colors);
 
-	$('body').css({
-		"background-color": `${colors[0]}`,
-		"background": `linear-gradient(0deg, ${colors[0]} 0%, ${colors[1]} 35%, ${colors[2]} 100%)`
-	});
+  $('.container').css({
+    "background-color": `#${colors[0]}`,
+    "background": `linear-gradient(0deg, #${colors[0]} 0%, #${colors[1]} 35%, #${colors[2]} 100%)`
+  });
 
 }

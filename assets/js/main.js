@@ -58,6 +58,9 @@ async function randomizer() {
 			// FS_Object.randomArrayIndex(item.colors),
 			"red","green","blue"
 		];
+
+		colors = item.colors;
+
 		// console.log(browser, w, h, x, y, r);
 
 		let filePath = `/files/${item.filePath}${FS_Object.randomArrayIndex(item.fileNames)}`;

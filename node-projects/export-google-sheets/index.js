@@ -21,7 +21,7 @@ const spreadsheet = {
 	out: 'csv', // the default is json
 	sheet: 'time', // the "tab"
 	range: 'A4:N100', // !!
-	query: 'select+A,SUM(B)+offset+1' // e.g. select+A,SUM(B)+offset+1
+	query: '' // e.g. select+A,SUM(B)+offset+1
 };
 
 const url = `https://docs.google.com/spreadsheets/d/${spreadsheet.id}/gviz/tq?tqx=out:${spreadsheet.out}&sheet=${spreadsheet.sheet}&range=${spreadsheet.range}&query=${spreadsheet.query}`;
@@ -58,7 +58,7 @@ exports.getData = async () => {
 // let importSpreadsheet = require('export-google-sheets');
 // let data = importSpreadsheet.getData();
 
- 
+
 // async function d(){
 // 	let importSpreadsheet = require('../export-google-sheets');
 // 	let data = await importSpreadsheet.getData();

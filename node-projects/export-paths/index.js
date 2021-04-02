@@ -28,7 +28,7 @@ async function main() {
 	// dataArr = JSON.parse(await fs.readFile('../export-google-sheets/data/chasing-the-sun-data.json', 'utf8'));
 
 
-	// the google-sheets as CSV method 
+	// the google-sheets as CSV method
 
 	// require file
 	const exportGoogleSheets = require('../export-google-sheets');
@@ -77,6 +77,7 @@ async function main() {
 			fileCount: 0,
 			filePath: '',
 			fileNames: [],
+			colors: []
 		};
 
 
@@ -92,6 +93,10 @@ async function main() {
 		finalObj[key].fileNames = await getFilesInDir(`${basePath}/${finalObj[key].filePath}`);
 		// add count
 		finalObj[key].fileCount = finalObj[key].fileNames.length;
+		// add colors
+		if (dataArr[i].hex1) finalObj[key].colors.push(dataArr[i].hex1);
+		if (dataArr[i].hex2) finalObj[key].colors.push(dataArr[i].hex2);
+		if (dataArr[i].hex3) finalObj[key].colors.push(dataArr[i].hex3);
 		// add to count for report
 		assetsFoundPerRow += finalObj[key].fileCount;
 

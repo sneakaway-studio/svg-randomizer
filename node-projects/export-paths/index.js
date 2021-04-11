@@ -6,7 +6,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-const globals = require('../../assets/js/globals.js');
+const globals = require('../../randomizers/assets/globals.js');
 const basePath = globals.BASE_PATH;
 
 let finalObj = {},

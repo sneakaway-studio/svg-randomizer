@@ -1,6 +1,6 @@
 let data;
 
-fetch('node-projects/export-paths/data/all-data.json')
+fetch('../../node-projects/export-paths/data/all-data.json')
 	.then(response => response.json())
 	.then(d => {
 		console.log(d);

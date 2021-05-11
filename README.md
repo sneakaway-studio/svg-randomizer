@@ -1,23 +1,29 @@
 
 
 
+## SVG Randomizer
 
 
 
 
-## Randomizers
+
+### Export Data (paths)
+
+1. In Atom, open `/node-projects/export-paths` in Terminal (right+click Open Terminal Here)
+1. Update spreadsheet as needed
+1. Run `node index.js` to re-export data to `/node-projects/export-paths/data/all-data.json`
+1. Refresh Randomizer
+1. Repeat
 
 
-### Print page method
+### Randomizer – Print page method
 
-1. Open Atom
-1. Open `/node-projects/test-server` in Terminal
+1. In Atom, open `/node-projects/test-server` in Terminal (right+click Open Terminal Here)
 1. Run `node server.js`
 1. View randomizer at URL
-- HTTP: https://localhost:3000/randomizers/print-img
-- HTTPS: https://localhost:3000/randomizers/print-img
+  - HTTP: https://localhost:3000/randomizers/print-img
+  - HTTPS: https://localhost:3000/randomizers/print-img
 1. Print page to make image
-
 
 
 

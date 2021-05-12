@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>svg randomizer</title>
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			font: .9em/1.0em sans-serif;
+			height: 100%;
+			background-color: #000000;
+		}
+		textarea.copyPaste {
+			width: 100%;
+			background-color: rgb(0,0,0,.4);
+			color: white;
+			border: none;
+			position: absolute;
+			z-index: 100000;
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<textarea class="copyPaste" rows="8" cols="80"></textarea>
+
+
+
+	<script src="../assets/libs/jquery-3.2.1.min.js"></script>
+	<script src="../assets/functions/fs-objects.js"></script>
+	<script src="../assets/functions/fs-numbers.js"></script>
+	<script src="../assets/functions/fs-html.js"></script>
+	<script src="../assets/globals.js"></script>
+
+
+
+		<script src="p5.min.js"></script>
+			<script src="p5.svg.js"></script>
+	<script src="sketch.js"></script>
+
+
+</body>
+
+</html>

@@ -17,8 +17,8 @@ let browser = {
 	},
 	settings = {
 		count: {
-			min: 40,
-			max: 100
+			min: 4,
+			max: 10
 		},
 		w: {
 			min: 300,
@@ -56,7 +56,7 @@ async function randomizer() {
 			// FS_Object.randomArrayIndex(item.colors),
 			// FS_Object.randomArrayIndex(item.colors),
 			// FS_Object.randomArrayIndex(item.colors),
-			"red","green","blue"
+			"red", "green", "blue"
 		];
 
 		colors = item.colors;
@@ -76,9 +76,55 @@ async function randomizer() {
 	// console.log($(".container").html());
 	console.log("colors", colors);
 
-  $('.container').css({
-    "background-color": `#${colors[0]}`,
-    "background": `linear-gradient(0deg, #${colors[0]} 0%, #${colors[1]} 35%, #${colors[2]} 100%)`
-  });
+	$('.container').css({
+		"background-color": `#${colors[0]}`,
+		"background": `linear-gradient(0deg, #${colors[0]} 0%, #${colors[1]} 35%, #${colors[2]} 100%)`
+	});
+
+
+	// animator();
+}
+
+
+function animator() {
+
+	// set the transform origin
+	$('img').each(() => {
+		$(this).css({
+			"rotate": `${Math.random()*360}deg`,
+			"transform-origin": `${Math.random()*200}px ${Math.random()*200}px`
+		});
+	});
+
+// return;
+	anime({
+		targets: 'img',
+		// transform: "rotate(0deg) translate(120px)",
+		// rotate: function(el, i, l) {
+		// 	return Math.random() * 360;
+		// },
+		rotate: [{
+			value: '+=10deg'
+		}],
+
+		// translateX: [{
+		// 		value: 250,
+		// 		duration: 1000,
+		// 		delay: 500
+		// 	},
+		// 	{
+		// 		value: 0,
+		// 		duration: 1000,
+		// 		delay: 500
+		// 	}
+		// ],
+		// translate: 120,
+		delay: 100,
+		loop: true,
+		duration: function(el, i, l) {
+			return anime.random(3000, 5000);
+		},
+		// easing: 'easeInOutSine'
+	});
 
 }

@@ -1,0 +1,74 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="500" viewBox="0,0,1000,500">
+	<defs>
+		<clipPath id="clip-1"><rect x="0" y="0" width="65.49" height="140.6" fill="none"/></clipPath>
+		<clipPath id="clip-2"><rect x="0" y="0" width="259.73" height="31.9" fill="none"/></clipPath>
+		<clipPath id="clip-3"><rect x="0" y="0" width="309.59" height="102.79" fill="none"/></clipPath>
+		<clipPath id="clip-4"><rect x="0" y="0" width="39.44" height="151.85" fill="none"/></clipPath>
+		<clipPath id="clip-5"><rect x="0" y="0" width="189.48" height="59.8" fill="none"/></clipPath>
+		<clipPath id="clip-6"><rect x="0" y="0" width="93.37" height="157.87" fill="none"/></clipPath>
+		<clipPath id="clip-7"><rect x="0" y="0" width="4.41" height="79.38" fill="none"/></clipPath>
+		<clipPath id="clip-8"><rect x="0" y="0" width="8.12" height="96.43" fill="none"/></clipPath>
+		<clipPath id="clip-9"><rect x="0" y="0" width="8.12" height="96.43" fill="none"/></clipPath>
+	</defs>
+	<g
+		fill="none"
+		fill-rule="nonzero"
+		stroke="none"
+		stroke-width="1"
+		stroke-linecap="butt"
+		stroke-linejoin="miter"
+		stroke-miterlimit="10"
+		stroke-dasharray=""
+		stroke-dashoffset="0"
+		font-family="none"
+		font-weight="none"
+		font-size="none"
+		text-anchor="none"
+		style="mix-blend-mode: normal">
+		<g clip-path="url(#clip-1)">
+			<g id="Layer_2" fill="#767f84">
+				<g id="House"><path d="M2.71,62.92l-1.07,76.71l63.85,1l-1.12,-140.63l-64.37,3.55v45.63l13.9,6.65v7.09zM55.44,23.05h9.1l0.2,26.88h-9.3zM55.44,87.73h9.56v37.69h-9.56zM24.44,23.05h27.75v26.88h-27.76zM23,87.73h29.19v37.69h-29.19z"/></g>
+			</g>
+		</g>
+		<g clip-path="url(#clip-2)">
+			<g id="Layer_2" fill="#bac0cc">
+				<g id="House"><path d="M0,22.37v9.53l259.73,-22.6v-9.3z"/></g>
+			</g>
+		</g>
+		<g clip-path="url(#clip-3)">
+			<g id="Layer_2" fill="#dfe1e6">
+				<g id="House"><path d="M31.14,102.79l-31.14,-23.93l88.56,-5.67l-38.7,-50.6l259.74,-22.59l-50.09,87.72l-4.43,-73.19l-159.97,14.02l-0.41,52.97l-63.56,3.54z"/></g>
+			</g>
+		</g>
+		<g clip-path="url(#clip-4)">
+			<g id="Layer_2" fill="#414242">
+				<g id="house"><path d="M21.24,130.49l17.48,-14.71l0.72,10.82l-34.73,25.24l-4.71,-113.58l15.46,-7.9v-14.25l17.42,-16.11l1.85,15.3l-12.74,10.63l-0.05,7.5z"/></g>
+			</g>
+		</g>
+		<g clip-path="url(#clip-5)">
+			<g id="Layer_2" fill="#414242">
+				<g id="house"><path d="M0,12.71l0.24,47.09h4v-34.79l69.26,-9.17l1.41,39.35l4.91,-0.32l-0.7,-39.8l63.32,-8.28l1.6,43.9l4.75,-0.31l-2.07,-44.23l37.91,-4.56l1.29,46.37l3.56,-0.23l-1.79,-47.73z"/></g>
+			</g>
+		</g>
+		<g clip-path="url(#clip-6)">
+			<g id="Layer_2" fill="#414242">
+				<g id="house"><path d="M93.37,149.98l-15.46,7.89l-77.91,-157.87z"/></g>
+			</g>
+		</g>
+		<g clip-path="url(#clip-7)">
+			<g id="Layer_2" fill="#414242">
+				<g id="House"><path d="M0,79.38l1.69,-79.38l2.72,0.83l-1.41,78.21z"/></g>
+			</g>
+		</g>
+		<g clip-path="url(#clip-8)">
+			<g id="Layer_2" fill="#414242">
+				<g id="House"><path d="M5.02,0l-5.02,96.43h3.4l4.72,-96.43z"/></g>
+			</g>
+		</g>
+		<g clip-path="url(#clip-9)">
+			<g id="Layer_2" fill="#414242">
+				<g id="House"><path d="M5.02,0l-5.02,96.43h3.4l4.72,-96.43z"/></g>
+			</g>
+		</g>
+	</g>
+</svg>

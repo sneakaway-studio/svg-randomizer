@@ -131,7 +131,7 @@ async function getFilesInDir(dirPath) {
 			// console.log(dirPath + file);
 			arr.push(file);
 		});
-	});
+	}).catch(err => console.error("ERROR in getFilesInDir()",err));
 
 	return arr;
 }
@@ -183,7 +183,7 @@ const getFilenames = async () => {
 			// console.log(file);
 			// console.log(importPath + file);
 			dirs.push(file);
-		});
+		}).catch(err => console.error("ERROR in getFilenames()",err));
 	// console.log(dirs.join("\n"));
 	return dirs;
 };

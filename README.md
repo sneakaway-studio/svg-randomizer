@@ -21,8 +21,8 @@
 1. In Atom, open `/node-projects/test-server` in Terminal (right+click Open Terminal Here)
 1. Run `node server.js`
 1. View randomizer at URL
-  - HTTP: https://localhost:3000/randomizers/print-img
-  - HTTPS: https://localhost:3000/randomizers/print-img
+  - HTTP: http://localhost:3000/randomizers/print-page/
+  - HTTPS: https://localhost:3000/randomizers/print-page/
 1. Print page to make image
 
 

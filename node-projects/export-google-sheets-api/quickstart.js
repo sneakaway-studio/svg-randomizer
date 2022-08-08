@@ -114,7 +114,7 @@ function handleData(auth) {
 
 		// CTS-data
 		spreadsheetId: '1-VmzIyWNhzmaAiSLaPCoY6ZnJaxl3G_bxcljgXgxWKU',
-		range: 'times!A4:J100',
+		range: 'times!A4:S200',
 
 	}, (err, res) => {
 		if (err) return console.log('The API returned an error: ' + err);

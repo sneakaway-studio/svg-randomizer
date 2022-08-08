@@ -3,7 +3,7 @@ let data;
 fetch('../../node-projects/export-paths/data/all-data.json')
 	.then(response => response.json())
 	.then(d => {
-		console.log(d);
+		// console.log(d);
 		data = d;
 		randomizer();
 	});
@@ -17,15 +17,15 @@ let browser = {
 	},
 	settings = {
 		count: {
-			min: 4,
-			max: 10
+			min: 100,
+			max: 150
 		},
 		w: {
-			min: 300,
-			max: 700
+			min: 100,
+			max: 800
 		},
 		h: {
-			min: 300,
+			min: 100,
 			max: 700
 		},
 		r: {
@@ -47,9 +47,10 @@ async function randomizer() {
 			h = FS_Number.randomIntBetween(settings.h.min, settings.h.max),
 			x = FS_Number.round((FS_Number.randomFloatBetween(0.3, 0.85) * browser.w) - (w / 2)),
 			y = FS_Number.round((FS_Number.randomFloatBetween(0.4, 0.85) * browser.h) - (h / 2)),
-			r = FS_Number.randomIntBetween(settings.r.min, settings.r.max);
+			r = FS_Number.randomIntBetween(settings.r.min, settings.r.max),
+			scaleFactor = item.scaleFactor;
 
-		// console.log("item", item);
+		console.log("item", item);
 
 
 		colors = [
@@ -61,13 +62,13 @@ async function randomizer() {
 
 		colors = item.colors;
 
-		// console.log(browser, w, h, x, y, r);
+		console.log(browser, `w:${w}, h:${h}, x:${x}, y:${y}, r:${r}, scaleFactor:${scaleFactor}`);
 
 		let filePath = `/files/${item.filePath}${FS_Object.randomArrayIndex(item.fileNames)}`;
 		// console.log(filePath);
 
 		files.push(`<img
-				style="width: ${w}px; height: ${h}px; top: ${y}px; left: ${x}px; transform: rotate(${r}deg);"
+				style="width: ${w}px; height: ${h}px; top: ${y}px; left: ${x}px; transform: rotate(${r}deg) scale(${scaleFactor});"
 			 	src="${filePath}">`);
 	}
 	// console.log("files", files);
@@ -76,6 +77,9 @@ async function randomizer() {
 	// console.log($(".container").html());
 	console.log("colors", colors);
 
+	$('html,body').css({
+		"background-color": `#${colors[0]}`
+	});
 	$('.container').css({
 		"background-color": `#${colors[0]}`,
 		"background": `linear-gradient(0deg, #${colors[0]} 0%, #${colors[1]} 35%, #${colors[2]} 100%)`

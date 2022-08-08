@@ -20,7 +20,7 @@ const spreadsheet = {
 	id: '1-VmzIyWNhzmaAiSLaPCoY6ZnJaxl3G_bxcljgXgxWKU', // from the url
 	out: 'csv', // the default is json
 	sheet: 'time', // the "tab"
-	range: 'A4:N100', // !!
+	range: 'A4:S200', // !!
 	query: '' // e.g. select+A,SUM(B)+offset+1
 };
 

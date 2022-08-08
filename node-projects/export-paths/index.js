@@ -78,7 +78,8 @@ async function main() {
 			fileCount: 0,
 			filePath: '',
 			fileNames: [],
-			colors: []
+			colors: [],
+			scaleFactor: 0
 		};
 
 
@@ -98,6 +99,11 @@ async function main() {
 		if (dataArr[i].hex1) finalObj[key].colors.push(dataArr[i].hex1);
 		if (dataArr[i].hex2) finalObj[key].colors.push(dataArr[i].hex2);
 		if (dataArr[i].hex3) finalObj[key].colors.push(dataArr[i].hex3);
+		// add scale
+		if (dataArr[i].scaleFactor) finalObj[key].scaleFactor = dataArr[i].scaleFactor;
+
+// console.log(dataArr[i])
+
 		// add to count for report
 		assetsFoundPerRowTotal += finalObj[key].fileCount;
 

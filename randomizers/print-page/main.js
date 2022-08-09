@@ -48,7 +48,7 @@ async function randomizer() {
 			x = FS_Number.round((FS_Number.randomFloatBetween(0.3, 0.85) * browser.w) - (w / 2)),
 			y = FS_Number.round((FS_Number.randomFloatBetween(0.4, 0.85) * browser.h) - (h / 2)),
 			r = FS_Number.randomIntBetween(settings.r.min, settings.r.max),
-			scaleFactor = item.scaleFactor;
+			scaleFactor = item.scaleFactor ? item.scaleFactor : 1;
 
 		console.log("item", item);
 

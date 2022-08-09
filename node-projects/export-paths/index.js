@@ -79,7 +79,7 @@ async function main() {
 			filePath: '',
 			fileNames: [],
 			colors: [],
-			scaleFactor: 0
+			scaleFactor: 1
 		};
 
 

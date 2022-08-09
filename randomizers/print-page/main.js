@@ -48,7 +48,7 @@ async function randomizer() {
 			x = FS_Number.round((FS_Number.randomFloatBetween(0.3, 0.85) * browser.w) - (w / 2)),
 			y = FS_Number.round((FS_Number.randomFloatBetween(0.4, 0.85) * browser.h) - (h / 2)),
 			r = FS_Number.randomIntBetween(settings.r.min, settings.r.max),
-			scaleFactor = item.scaleFactor ? item.scaleFactor : 1;
+			scale = item.scale ? item.scale : 1;
 
 		console.log("item", item);
 
@@ -62,13 +62,13 @@ async function randomizer() {
 
 		colors = item.colors;
 
-		console.log(browser, `w:${w}, h:${h}, x:${x}, y:${y}, r:${r}, scaleFactor:${scaleFactor}`);
+		console.log(browser, `w:${w}, h:${h}, x:${x}, y:${y}, r:${r}, scale:${scale}`);
 
 		let filePath = `/files/${item.filePath}${FS_Object.randomArrayIndex(item.fileNames)}`;
 		// console.log(filePath);
 
 		files.push(`<img
-				style="width: ${w}px; height: ${h}px; top: ${y}px; left: ${x}px; transform: rotate(${r}deg) scale(${scaleFactor});"
+				style="width: ${w}px; height: ${h}px; top: ${y}px; left: ${x}px; transform: rotate(${r}deg) scale(${scale});"
 			 	src="${filePath}">`);
 	}
 	// console.log("files", files);

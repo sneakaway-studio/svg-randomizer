@@ -1,18 +1,5 @@
 
-
-
 # SVG Randomizer
-
-
-## About
-
-Two things are required:
-
-1. Run Export data tool: This pre-exports data
-  - From the spreadsheet
-  - And then gets a list of files on your computer based on the settings in the spreadsheet
-1. Run the test-server to view the randomized images.
-  - Basically allows you to run localhost to get local files
 
 
 
@@ -22,14 +9,16 @@ Two things are required:
 
 ### Step 1. Update Spreadsheet Data
 
-1. Update spreadsheet as needed
-1. **Include** - Add a 1 to include files at this path.
-1. **Hex1-3** - These are the background colors. Hex1 will make a solid color, while adding all three will make a gradient.
-1. **scaleFactor** - Add a value to change the scale. For example: 1.5 = 150% of current scale. It will default to 1 (100% scale) if you don't.
-1. **placeHolder** - This is a google sheets hack. Put anything in there.
+Column | Description | Default value
+--- | --- | ---
+`include` | Add a 1 to include files at this path |
+`hex1` | Background color for whole page | `fff`
+`hex2, hex3` | Add color to make a [gradient](https://cssgradient.io/) on top of background color | `fff`
+`scale` | Increase/decrease scale. e.g. `1.5` = `150%` | `1` (`100%`)
+`placeHolder` | A google sheets hack. Any data is fine. | `0`
 
 
-### Step 2. Export Spreadsheet Data
+### Step 2. Export Spreadsheet Data*
 
 1. Open [Atom](https://atom.io/)
 1. Open `/node-projects/export-paths` in Terminal (right+click and choose "Open Terminal Here")
@@ -37,10 +26,10 @@ Two things are required:
 1. To re-export data, press the up arrow and return each time.
 
 
-### Step 3: Start the test-server
+### Step 3: Start the file-server*
 
 1. Open [Atom](https://atom.io/)
-1. Open `/node-projects/test-server` in separate Terminal window (right+click Open Terminal Here)
+1. Open `/node-projects/file-server` in separate Terminal window (right+click Open Terminal Here)
 1. Type `node server.js` and hit return
 1. This starts the test server. Leave this running in a separate Terminal window.
 1. View randomizer http://localhost:3000/randomizers/
@@ -50,22 +39,31 @@ Two things are required:
 
 
 
+### Step 4: Export SVG
 
 
-### NOTES
+#### SVG Copy / Paste method
+
+1. Go to http://localhost:3000/randomizers/svg-paste/
+1. Inspect the page and search for "SVG" in the code
+1. Click to copy / paste svg code
+
+
+
+
+### Notes
+<small>
+
+1. Exports and uses spreadsheet data and to itemize files on your computer
+1. Allows loading of local files and data into randomizer w/o CORS error
+
+</small>
+
+
+
+
+
+
+## Working with Illustrator
 
 - Illustrator does not support using CSS inside SVGs. You must use the attributes which are built-in
-
-
-
-
-### SVG Copy / Paste method
-
-
-~~~
-#### Instructions
-
-HTTP: http://localhost:3000/randomizers/svg-paste/
-HTTPS: https://localhost:3000/randomizers/svg-paste/
-Click to copy / paste svg code
-~~~

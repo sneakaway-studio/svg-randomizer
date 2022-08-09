@@ -2,7 +2,6 @@
  *	Write all the filenames
  */
 
-
 const fs = require('fs').promises;
 const path = require('path');
 
@@ -15,6 +14,10 @@ let finalObj = {},
 // MAIN
 async function main() {
 	console.log(`\n#############################################################################`);
+
+
+// spreadsheet
+// https://docs.google.com/spreadsheets/d/1-VmzIyWNhzmaAiSLaPCoY6ZnJaxl3G_bxcljgXgxWKU/edit#gid=225781419
 
 
 
@@ -39,7 +42,7 @@ async function main() {
 
 	// make sure data is imported
 	if (!dataArr) {
-		console.log("NO DATA FOUND");
+		console.error("NO DATA FOUND");
 		return;
 	}
 
@@ -79,7 +82,7 @@ async function main() {
 			filePath: '',
 			fileNames: [],
 			colors: [],
-			scaleFactor: 1
+			scale: 1
 		};
 
 
@@ -100,7 +103,7 @@ async function main() {
 		if (dataArr[i].hex2) finalObj[key].colors.push(dataArr[i].hex2);
 		if (dataArr[i].hex3) finalObj[key].colors.push(dataArr[i].hex3);
 		// add scale
-		if (dataArr[i].scaleFactor) finalObj[key].scaleFactor = dataArr[i].scaleFactor;
+		if (dataArr[i].scale) finalObj[key].scale = dataArr[i].scale;
 
 // console.log(dataArr[i])
 

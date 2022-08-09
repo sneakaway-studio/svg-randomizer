@@ -7,7 +7,7 @@ const [app, port] = require('./app');
 
 // start listening for requests
 app.listen(port, () => {
-	console.log(`Go to this url to access randomizers http://localhost${port}:/randomizers/`);
+	console.log(`Randomizer is live at this address: http://localhost:${port}/randomizers/`);
 });
 
 // export app

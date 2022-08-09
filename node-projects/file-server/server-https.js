@@ -19,7 +19,7 @@ var options = {
 var server = https.createServer(options, app);
 // start listening for requests
 server.listen(port, () => {
-	console.log(`Example HTTPS app listening at https://localhost:${port}`);
+	console.log(`Randomizer is live at this address: https://localhost:${port}/randomizers/`);
 });
 
 // export app for heroku

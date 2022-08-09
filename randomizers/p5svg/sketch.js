@@ -1,7 +1,7 @@
 
 var img;
 function preload() {
-    img = loadSVG('../../tests/output1.svg');
+    img = loadSVG('../../tests/output-p5/output1.svg');
 }
 
 function setup() {
@@ -12,11 +12,19 @@ function setup() {
 
 
 
-// ellipse(30, 30, 20, 20);
+ellipse(30, 30, 20, 20);
 
+}
+function draw() {
+    image(img, 0, 0, 1000, 1000);
 }
 
 
-function draw() {
-    image(img, 0, 0, 1000, 1000);
+
+
+
+
+
+function saveSVG(){
+	save();
 }

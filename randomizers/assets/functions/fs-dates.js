@@ -4,111 +4,139 @@
  * 	- See notes in API README about datetime for Tally and future projects
  ******************************************************************************/
 
-window.FS_Date = (function() {
+var FS_Date = (function() {
 	// PRIVATE
-	function format(date) {
-		if (date == "now") date = moment();
-		else date = moment(date);
-		return date;
-	}
-	// 24 hour time format
-	let timeFormat24 = 'HH:mm:ss';
-	// now
-	let time = moment();
-	let workTime = [
-			moment("9:00", timeFormat24),
-			moment("17:00", timeFormat24)
-		],
-		nightTime = [
-			moment("22:00", timeFormat24),
-			moment("6:00", timeFormat24).add(1, 'day') // add one day for tomorrow morning
-		];
-
-	function isWeekDay() {
-		let weekDay = moment().isBetween(moment().isoWeekday(1), moment().isoWeekday(5), 'day', '[]');
-		//console.log("isWeekDay()", weekDay);
-		return weekDay;
-	}
+	// function format(date) {
+	// 	if (date == "now") date = moment();
+	// 	else date = moment(date);
+	// 	return date;
+	// }
+	// // 24 hour time format
+	// let timeFormat24 = 'HH:mm:ss';
+	// // now
+	// let time = moment();
+	// let workTime = [
+	// 		moment("9:00", timeFormat24),
+	// 		moment("17:00", timeFormat24)
+	// 	],
+	// 	nightTime = [
+	// 		moment("22:00", timeFormat24),
+	// 		moment("6:00", timeFormat24).add(1, 'day') // add one day for tomorrow morning
+	// 	];
+	//
+	// function isWeekDay() {
+	// 	let weekDay = moment().isBetween(moment().isoWeekday(1), moment().isoWeekday(5), 'day', '[]');
+	// 	//console.log("isWeekDay()", weekDay);
+	// 	return weekDay;
+	// }
 
 
 	// PUBLIC
 	return {
-		time: function() {
-			return time;
+		// time: function() {
+		// 	return time;
+		// },
+		// isWorkday: function() {
+		// 	let ret = (moment().isBetween(workTime[0], workTime[1]) && isWeekDay());
+		// 	//console.log("isWorkday", ret);
+		// 	if (ret)
+		// 		return true;
+		// 	else return false;
+		// },
+		// isWeekDay: isWeekDay,
+		// isNight: function() {
+		// 	//console.log("isNight", time, moment().isBetween(nightTime[0], nightTime[1]));
+		// 	if (moment().isBetween(nightTime[0], nightTime[1]))
+		// 		return true;
+		// 	else return false;
+		// },
+		// // what is the difference in milliseconds?
+		// difference: function(d1, d2) {
+		// 	d1 = format(d1);
+		// 	d2 = format(d2);
+		// 	return moment(d1).diff(moment(d2));
+		// },
+		// diffSeconds: function(d1, d2) {
+		// 	d1 = format(d1);
+		// 	d2 = format(d2);
+		// 	return Math.floor((d1.diff(moment(d2)) / 1000));
+		// },
+		// diffMinutes: function(d1, d2) {
+		// 	d1 = format(d1);
+		// 	d2 = format(d2);
+		// 	return Math.floor((d1.diff(moment(d2)) / 1000 / 60));
+		// },
+		// diffHours: function(d1, d2) {
+		// 	d1 = format(d1);
+		// 	d2 = format(d2);
+		// 	return Math.floor((d1.diff(moment(d2)) / 1000 / 60 / 60));
+		// },
+		// // is the difference between date1 and date2 more than "val" "period"?
+		// moreThan: function(d1, d2, val, period) {
+		// 	d1 = format(d1);
+		// 	d2 = format(d2);
+		// 	if (moment(d1).diff(moment(d2), period) > val)
+		// 		return true;
+		// 	return false;
+		// },
+		// moreThanOneHourAgo: function(endtime) {
+		// 	endtime = format(endtime);
+		// 	let diff = moment().diff(endtime, "minutes");
+		// 	// console.log("FS_Date.moreThanOneHourAgo()",endtime,diff);
+		// 	return (diff > 3);
+		// },
+
+
+
+// COMMENTED EVERYTHING ABOVE - NEED TO REMOVE MOMENT() FROM THIS LIB
+
+		/**
+		 *	Return a date in ISO string (2 versions)
+		 */
+		returnDateISO: function(date = null, timeSeparator = "-", includeMillis = false) {
+			if (date == null) date = new Date();
+			let s = date.toISOString();
+			// console.log(s)
+			// -> "2011-12-19T15:28:46.493Z"
+
+			// remove milliseconds
+			if (!includeMillis)
+				s = s.substring(0, s.indexOf('.'));
+			// -> "2011-12-19T15:28:46"
+			// console.log(s)
+
+			// replace time separator with hyphens
+			s = s.replace(/:/g, timeSeparator);
+			// console.log(s)
+			return s;
 		},
-		isWorkday: function() {
-			let ret = (moment().isBetween(workTime[0], workTime[1]) && isWeekDay());
-			//console.log("isWorkday", ret);
-			if (ret)
-				return true;
-			else return false;
+		returnDateISOLongForm: function() {
+			var d = new Date();
+			return d.getUTCFullYear() + '-' +
+				this.pad(d.getUTCMonth() + 1) + '-' +
+				this.pad(d.getUTCDate()) + 'T' +
+				this.pad(d.getUTCHours()) + '-' +
+				this.pad(d.getUTCMinutes()) + '-' +
+				this.pad(d.getUTCSeconds()) + 'Z';
 		},
-		isWeekDay: isWeekDay,
-		isNight: function() {
-			//console.log("isNight", time, moment().isBetween(nightTime[0], nightTime[1]));
-			if (moment().isBetween(nightTime[0], nightTime[1]))
-				return true;
-			else return false;
-		},
-		// what is the difference in milliseconds?
-		difference: function(d1, d2) {
-			d1 = format(d1);
-			d2 = format(d2);
-			return moment(d1).diff(moment(d2));
-		},
-		diffSeconds: function(d1, d2) {
-			d1 = format(d1);
-			d2 = format(d2);
-			return Math.floor((d1.diff(moment(d2)) / 1000));
-		},
-		diffMinutes: function(d1, d2) {
-			d1 = format(d1);
-			d2 = format(d2);
-			return Math.floor((d1.diff(moment(d2)) / 1000 / 60));
-		},
-		diffHours: function(d1, d2) {
-			d1 = format(d1);
-			d2 = format(d2);
-			return Math.floor((d1.diff(moment(d2)) / 1000 / 60 / 60));
-		},
-		// is the difference between date1 and date2 more than "val" "period"?
-		moreThan: function(d1, d2, val, period) {
-			d1 = format(d1);
-			d2 = format(d2);
-			if (moment(d1).diff(moment(d2), period) > val)
-				return true;
-			return false;
-		},
-		moreThanOneHourAgo: function(endtime) {
-			endtime = format(endtime);
-			let diff = moment().diff(endtime, "minutes");
-			// console.log("FS_Date.moreThanOneHourAgo()",endtime,diff);
-			return (diff > 3);
+		pad: function(n) {
+			return n < 10 ? '0' + n : n;
 		}
 
 	};
 })();
+
+// if running in node, then export module
+if (typeof process === 'object') module.exports = FS_Date;
+// otherwise add as "global" object window for browser / extension
+else self.FS_Date = FS_Date;
+
 
 
 
 /*  DATE FUNCTIONS (OLD, VANILLA JS, BEFORE SWITCHING TO MOMENT() )
  ******************************************************************************/
 
-/**
- *	Return a date in ISO string
- */
-/*
-function returnDateISO(_date = null) {
-	var date = new Date();
-	if (_date != null)
-		date = _date;
-	var s;
-	s = date.toISOString(); //"2011-12-19T15:28:46.493Z"
-	// remove milliseconds
-	s = s.substring(0, s.indexOf('.'));
-	return s;
-}
-*/
 
 
 /**

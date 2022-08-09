@@ -73,7 +73,7 @@ async function main() {
 			// if (dataArr[i].location !== undefined) console.log(currentTZ);
 		}
 		let key = `${currentTZ}-${dataArr[i].num}-${dataArr[i].location}-${dataArr[i].object}`;
-		// console.log("   ", key);
+		console.log("   ", key);
 
 		finalObj[key] = {
 			location: dataArr[i].location,
@@ -93,8 +93,13 @@ async function main() {
 		assetsFoundPerRow = 0;
 
 		// add the path
-		finalObj[key].filePath = `${dataArr[i].dir}/${dataArr[i].num}/${dataArr[i].object}/SVG/`;
+		if (globals.USE_TEST_DIR)
+			// Owen's Macbook Pro (override)
+			finalObj[key].filePath = `UTC-ORIGINALS_03-03_01/${dataArr[i].object}/SVG/`;
+		else // Joelle's Mac Pro
+			finalObj[key].filePath = `${dataArr[i].dir}/${dataArr[i].num}/${dataArr[i].object}/SVG/`;
 		// add the filenames
+		console.log(`add the filenames ${basePath}/${finalObj[key].filePath}`);
 		finalObj[key].fileNames = await getFilesInDir(`${basePath}/${finalObj[key].filePath}`);
 		// add count
 		finalObj[key].fileCount = finalObj[key].fileNames.length;

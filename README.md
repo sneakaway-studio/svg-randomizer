@@ -2,6 +2,14 @@
 # SVG Randomizer
 
 
+## TO DO
+
+1. import svgs parts
+1. put them all in the browser, randomizing all the pieces
+1. export button
+1. check in Illustrator
+1. ability to also animate
+
 
 
 ## Instructions

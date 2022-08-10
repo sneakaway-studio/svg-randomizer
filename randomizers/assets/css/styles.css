@@ -12,19 +12,6 @@ body {
 	height: 100%;
 }
 
-textarea.svgString {
-	display: none;
-}
-
-textarea.copyPaste {
-	width: 100%;
-	background-color: rgb(0, 0, 0, .4);
-	color: white;
-	border: none;
-	position: absolute;
-	z-index: 100000;
-}
-
 .controls {
 	position: absolute;
 	bottom: 0;

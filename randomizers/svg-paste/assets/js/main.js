@@ -1,5 +1,5 @@
 /**
- *	svg-paste + print-page Randomizer
+ *	Main Randomizer
  */
 
 
@@ -54,8 +54,7 @@ let screenW = 1500,
 			max: 360
 		}
 	},
-	// the number of svgs that will be included in this viz
-	count = FS_Number.randomIntBetween(settings.count.min, settings.count.max);
+	count = 0;
 
 // OUTPUT
 let svgString = '',
@@ -74,6 +73,9 @@ async function init() {
 	// 1. Fetch data
 	data = await globals.getAllData();
 	// console.log("data", data);
+
+	// check controls
+	count = $('.countInput').val() || FS_Number.randomIntBetween(settings.count.min, settings.count.max);
 
 	// 2. create selection keys arr (combines and weights them all)
 	selectionKeysArr = await globals.getWeightedSelectionKeysArr(data, count);
@@ -204,8 +206,7 @@ ${svgArr.join("\n")}
 
 
 	// add all together in a nested SVG
-	$(".svgContainer").append(svgString);
-
+	$(".svgContainer").html(svgString);
 
 	// update colors
 	$('html,body').css({
@@ -215,6 +216,9 @@ ${svgArr.join("\n")}
 	// 	"background-color": `#${parentObj.bgGrad1}`,
 	// 	"background": `linear-gradient(0deg, #${parentObj.bgGrad1} 0%, #${parentObj.bgGrad2} 35%, #${parentObj.bgGrad3} 100%)`
 	// });
+
+	// update display
+	$('.countInput').val(count);
 
 }
 

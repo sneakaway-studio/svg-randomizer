@@ -16,7 +16,7 @@ app.use(Middleware.showRequests);
 // make whole dir 'public' for testing
 app.use(express.static('../../'));
 // base dir
-const globals = require('../../randomizers/assets/globals.js');
+const globals = require('../../randomizers/assets/js/globals.js');
 app.use('/files', express.static(globals.BASE_PATH));
 
 

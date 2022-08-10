@@ -13,18 +13,21 @@
 const basePath = globals.BASE_PATH;
 // console.log("globals",globals)
 
-// OUTPUT
-var img, sketch;
-let house, plant,
-	filePaths = {
-		house: [],
-		plant: []
-	},
-	filePathsCombined = [];
-// INPUT
-let screenW = 1500,
-	screenH = 1000;
+// DATA
+let data, selectionKeysArr = [];
 
+// INPUT / OUTPUT
+let screenW = 1500,
+	screenH = 1000,
+	settings = {
+		count: {
+			min: 5,
+			max: 15
+		}
+	},
+	// the number of svgs that will be included in this viz
+	count = FS_Number.randomIntBetween(settings.count.min, settings.count.max);
+var img, sketch;
 
 
 
@@ -36,43 +39,33 @@ let screenW = 1500,
 	init();
 })();
 
-async function init(){
+async function init() {
 	// 1. Fetch data
-	[house, plant] = await globals.getHousePlantData();
-	// console.log(house.fileNames, house.fileNames.length);
-	// console.log(plant.fileNames, plant.fileNames.length);
+	data = await globals.getAllData();
+	// console.log("data", data);
 
-	// 2. Prepare data
-	filePaths.house = globals.getFullPaths(house);
-	filePaths.plant = globals.getFullPaths(plant);
-	console.log(filePaths.house, filePaths.house.length);
-	console.log(filePaths.plant, filePaths.plant.length);
+	// 2. create selection keys arr (combines and weights them all)
+	selectionKeysArr = await globals.getWeightedSelectionKeysArr(data, count);
+	console.log("selectionKeysArr", selectionKeysArr);
 
-	// 3. shuffle each
-	filePaths.house = FS_Object.shuffleArray(filePaths.house);
-	filePaths.plant = FS_Object.shuffleArray(filePaths.plant);
-	console.log("filePaths", filePaths);
-
-	// for testing
-	// filePathsCombined = filePaths.house.concat(filePaths.plant);
-	filePathsCombined = filePaths.house.concat([]);
-
-	callRandomizer();
+	// 3. Run randomizer
+	randomizer();
 }
 
 
-function callRandomizer(){
-	// 4. create the sketch
-	// sketch = new p5(createSketch1); // simple hello world
-	// sketch = new p5(createSketch2); // basic proof SVG lib works
-	sketch = new p5(createSketch3); // working function, well not working
-}
 
 
 
 /********************************************************
 2. VISUALIZE
 ********************************************************/
+
+function randomizer() {
+	// create the sketch
+	// sketch = new p5(createSketch1); // simple hello world
+	// sketch = new p5(createSketch2); // basic proof SVG lib works
+	sketch = new p5(createSketch3); // working function, well not working
+}
 
 function createSketch1(p) {
 	p.setup = function() {
@@ -95,12 +88,10 @@ function createSketch2(p) {
 		p.createCanvas(screenW, screenH, p.SVG); // use SVG renderer
 	};
 	p.draw = function() {
-
 		// props that work with the SVG renderer
 		var x = 200;
 		var y = 200;
 		let scale = 0.45; // (Math.random() * 0.25 + Math.random() * 0.25);
-
 
 		// props that DO NOT
 		p.rotate(Math.random() * 360); // only works in WebGL
@@ -141,9 +132,9 @@ function createSketch3(p) {
 		img = p.loadSVG('../../tests/sample-svg-input/UTC-ORIGINALS_03-03_01/house/SVG/Asset 276.svg');
 		// ^ THIS HAS TO RUN ONCE BEFORE THE BELOW WILL WORK
 		// test3 - load joelle's
-		for (let i = 0; i < filePathsCombined.length; i++) {
-			console.log(filePathsCombined[i]);
-			img[i] = p.loadSVG(filePathsCombined[i]);
+		for (let i = 0; i < selectionKeysArr.length; i++) {
+			console.log(selectionKeysArr[i]);
+			img[i] = p.loadSVG(globals.relativeFilePathFromKeyObj(selectionKeysArr[i]));
 		}
 	};
 	p.setup = function() {
@@ -152,7 +143,7 @@ function createSketch3(p) {
 		p.createCanvas(screenW, screenH, p.SVG);
 	};
 	p.draw = function() {
-		for (let i = 0; i < filePathsCombined.length; i++) {
+		for (let i = 0; i < selectionKeysArr.length; i++) {
 
 			var x = 0;
 			var y = 0;
@@ -166,33 +157,39 @@ function createSketch3(p) {
 }
 
 
+
+
+/********************************************************
+3. CONTROLS & SAVE
+********************************************************/
+
 // save SVG
 document.querySelector(".saveSVG").addEventListener("click", function() {
 	console.log("File saved", FS_Date.returnDateISO());
 	sketch.save(`test-${FS_Date.returnDateISO()}`);
 	showSuccessButton(this);
 });
-document.querySelector(".randomize").addEventListener("click",  function() {
+document.querySelector(".randomize").addEventListener("click", function() {
 	// clear??
-	callRandomizer();
+	randomizer();
 	showSuccessButton(this);
 });
-document.querySelector(".updateData").addEventListener("click",  function() {
+document.querySelector(".updateData").addEventListener("click", function() {
 	updateDataAsync(this);
 });
 
 
-async function updateDataAsync(btn){
+async function updateDataAsync(btn) {
 	await globals.refreshLocalDataFromSheet();
 	init();
 	console.log("Data updated");
 	showSuccessButton(btn);
 }
 
-function showSuccessButton(btn){
+function showSuccessButton(btn) {
 	let currentBackground = btn.style.background;
 	btn.style.background = "green";
-	setTimeout(function(){
+	setTimeout(function() {
 		btn.style.background = currentBackground;
 	}, 1500);
 }

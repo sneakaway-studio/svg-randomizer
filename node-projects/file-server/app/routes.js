@@ -39,17 +39,9 @@ module.exports = function(app) {
 	});
 
 	// get remote data from google sheet
-	app.get('/api/getRemoteDataFromSheet', async (req, res) => {
+	app.get('/api/refreshLocalDataFromSheet', async (req, res) => {
 		// return the data
 		res.status(200).json(await getDataFromSheet());
-	});
-
-	app.get('/api/refreshLocalDataFromSheet', async (req, res) => {
-		// getDataFromSheet();
-		// return the data
-		res.status(200).json({
-			status: 1
-		});
 	});
 
 	// get local data

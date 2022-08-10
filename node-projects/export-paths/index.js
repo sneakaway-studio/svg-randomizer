@@ -102,9 +102,9 @@ exports.getData = async () => {
 			plant: dataArr[i].plant || "",
 			include: Number(dataArr[i].include) || 1,
 			bgColor: dataArr[i].bgColor || 'fff',
-			bgGrad1: dataArr[i].bgGrad1 || '',
-			bgGrad2: dataArr[i].bgGrad2 || '',
-			bgGrad3: dataArr[i].bgGrad3 || '',
+			bgGrad1: dataArr[i].bgGrad1 || 'fff',
+			bgGrad2: dataArr[i].bgGrad2 || 'fff',
+			bgGrad3: dataArr[i].bgGrad3 || 'fff',
 			scale: dataArr[i].scale || 1,
 
 			// add later

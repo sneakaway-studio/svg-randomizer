@@ -4,21 +4,41 @@
  */
 
 
+
+/********************************************************
+0. VARS
+********************************************************/
+
 // GLOBALS
-var img;
-var data;
-var sketch;
-var filePaths = {
-	house: [],
-	plant: []
-};
-var filePathsCombined = [];
-var screenW = 1500;
-var screenH = 1000;
+const basePath = globals.BASE_PATH;
+// console.log("globals",globals)
+
+// OUTPUT
+var img, sketch;
+let house, plant,
+	filePaths = {
+		house: [],
+		plant: []
+	},
+	filePathsCombined = [];
+// INPUT
+let screenW = 1500,
+	screenH = 1000;
+
+
+
+
+/********************************************************
+1. SETUP
+********************************************************/
 
 (async function() {
+	init();
+})();
+
+async function init(){
 	// 1. Fetch data
-	let [house, plant] = await globals.getHousePlantData();
+	[house, plant] = await globals.getHousePlantData();
 	// console.log(house.fileNames, house.fileNames.length);
 	// console.log(plant.fileNames, plant.fileNames.length);
 
@@ -37,15 +57,22 @@ var screenH = 1000;
 	// filePathsCombined = filePaths.house.concat(filePaths.plant);
 	filePathsCombined = filePaths.house.concat([]);
 
+	callRandomizer();
+}
+
+
+function callRandomizer(){
 	// 4. create the sketch
 	// sketch = new p5(createSketch1); // simple hello world
 	// sketch = new p5(createSketch2); // basic proof SVG lib works
 	sketch = new p5(createSketch3); // working function, well not working
-})();
+}
 
 
 
-
+/********************************************************
+2. VISUALIZE
+********************************************************/
 
 function createSketch1(p) {
 	p.setup = function() {
@@ -84,7 +111,7 @@ function createSketch2(p) {
 	};
 }
 
-function addRotation(ele="rect, circle, ellipse, line, polyline, polygon, path") {
+function addRotation(ele = "rect, circle, ellipse, line, polyline, polygon, path") {
 
 	// select all the shapes
 	// https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes
@@ -105,13 +132,6 @@ function addRotation(ele="rect, circle, ellipse, line, polyline, polygon, path")
 
 	}
 }
-
-
-
-
-
-
-
 
 function createSketch3(p) {
 	p.preload = function() {
@@ -146,12 +166,33 @@ function createSketch3(p) {
 }
 
 
-
-
-
-
-
+// save SVG
 document.querySelector(".saveSVG").addEventListener("click", function() {
 	console.log("File saved", FS_Date.returnDateISO());
 	sketch.save(`test-${FS_Date.returnDateISO()}`);
+	showSuccessButton(this);
 });
+document.querySelector(".randomize").addEventListener("click",  function() {
+	// clear??
+	callRandomizer();
+	showSuccessButton(this);
+});
+document.querySelector(".updateData").addEventListener("click",  function() {
+	updateDataAsync(this);
+});
+
+
+async function updateDataAsync(btn){
+	await globals.refreshLocalDataFromSheet();
+	init();
+	console.log("Data updated");
+	showSuccessButton(btn);
+}
+
+function showSuccessButton(btn){
+	let currentBackground = btn.style.background;
+	btn.style.background = "green";
+	setTimeout(function(){
+		btn.style.background = currentBackground;
+	}, 1500);
+}

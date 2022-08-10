@@ -4,23 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>svg randomizer</title>
+	<title>print-page</title>
+	<link rel="stylesheet" href="../assets/css/styles.css">
 	<style>
-		html,
 		body {
-			margin:0; padding: 0;
-			font: .9em/1.0em sans-serif;
-			height: 100%;
 			background-color: #000000;
 		}
 
-		.container {
-			width: 100%;
-			height: 100%;
-
-		}
-
-		svg, img {
+		svg,
+		img {
 			position: absolute;
 			/* max-width: 300px;
 			max-height: 200px; */
@@ -29,12 +21,14 @@
 </head>
 
 <body>
-	<!-- <div class="header">
-		<a href="https://localhost:3000/api/getFilenames">getFilenames</a> |
-		<a href="https://localhost:3000/api/getData">getData</a> |
-		<a href="https://localhost:3000/api/getFiles">getFiles</a>
-	</div> -->
-	<div class="container"></div>
+	<div class="svgContainer"></div>
+
+	<div class="controls">
+		<textarea class="svgString" rows="8" cols="80"></textarea>
+		<button class="updateData">updateData</button>
+		<button class="saveSVGstring">saveSVGstring</button>
+	</div>
+
 
 	<script src="../assets/libs/jquery-3.2.1.min.js"></script>
 	<script src="../assets/js/functions/fs-dates.js"></script>

@@ -1,13 +1,3 @@
-function copyToClipboard(ele, str) {
-	$(ele).val(str).select();
-	document.execCommand("copy");
-}
-
-
-
-
-
-
 let testSvg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 771.78 1092.93"><defs><style>.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#920015;}</style><clipPath id="clip-path" transform="translate(-0.17 -0.13)"><rect class="cls-1" width="771.89" height="1093.12"/></clipPath></defs><g id="Layer 2" data-name="Layer 2"></g><g class="cls-3" id="Layer 3" data-name="Layer 3"></g></svg>`;
 
 let testStyle = `.cls-1{fill:url(#linear-gradient);}.cls-2{fill:url(#linear-gradient-2);}.cls-3{fill:url(#linear-gradient-3);}.cls-4{fill:url(#linear-gradient-4);}.cls-5{fill:url(#linear-gradient-5);}.cls-6{fill:url(#linear-gradient-6);}`;
@@ -46,7 +36,7 @@ function getAllAttributeValues(str, attr) {
 function updateSelectorNames(str, append = 'hello') {
 
 	// remove underscores
-	str = str.replaceAll('_','-');
+	str = str.replaceAll('_', '-');
 
 
 	// 1. get all the values

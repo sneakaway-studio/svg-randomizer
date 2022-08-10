@@ -60,7 +60,7 @@ async function randomizer() {
 
 
 		let imgObj = FS_Object.randomObjProperty(data),
-			s = FS_Number.round(FS_Number.randomFloatBetween(settings.scale.min, settings.scale.max) *100, 2),
+			s = FS_Number.round(FS_Number.randomFloatBetween(settings.scale.min, settings.scale.max) * 100, 2),
 			x = FS_Number.round(FS_Number.randomFloatBetween(settings.x.min, settings.x.max), 2),
 			y = FS_Number.round(FS_Number.randomFloatBetween(settings.y.min, settings.y.max), 2),
 			// x = FS_Number.round((FS_Number.randomFloatBetween(settings.x.min, settings.x.max) * browser.w) * 0.5),
@@ -148,21 +148,7 @@ ${svgParentArr.join("\n")}
 
 
 	// add all together in a nested SVG
-	$("body").append(svgParentStr);
+	$(".svgContainer").append(svgParentStr);
 	// add string to input
-	$('.copyPaste').val(svgParentStr);
+	$('.svgString').val(svgParentStr);
 }
-
-
-$('body').on('click', function() {
-	copyToClipboard('.copyPaste', svgParentStr);
-});
-$(document).mouseenter(() => {
-	$(".copyPaste").css({
-		"display": "block"
-	});
-}).mouseleave(() => {
-	$(".copyPaste").css({
-		"display": "none"
-	});
-});

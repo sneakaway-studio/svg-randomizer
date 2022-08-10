@@ -73,14 +73,14 @@ async function randomizer() {
 	}
 	// console.log("files", files);
 
-	$(".container").append(files.join(""));
-	// console.log($(".container").html());
+	$(".svgContainer").append(files.join(""));
+	// console.log($(".svgContainer").html());
 	console.log("colors", colors);
 
 	$('html,body').css({
 		"background-color": `#${colors[0]}`
 	});
-	$('.container').css({
+	$('.svgContainer').css({
 		"background-color": `#${colors[0]}`,
 		"background": `linear-gradient(0deg, #${colors[0]} 0%, #${colors[1]} 35%, #${colors[2]} 100%)`
 	});

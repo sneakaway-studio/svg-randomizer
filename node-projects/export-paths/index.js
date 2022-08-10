@@ -8,16 +8,21 @@ const path = require('path');
 const globals = require('../../randomizers/assets/js/globals.js');
 const basePath = globals.BASE_PATH;
 
-let finalObj = {},
-	dataArr = [];
+let dataArr = [],
+	finalObj = {};
 
-// MAIN
-async function main() {
+
+// 3. Fetch and return JSON data
+
+var exports = module.exports = {};
+
+exports.getData = async () => {
+
 	console.log(`\n#############################################################################`);
 
 
-// spreadsheet
-// https://docs.google.com/spreadsheets/d/1-VmzIyWNhzmaAiSLaPCoY6ZnJaxl3G_bxcljgXgxWKU/edit#gid=225781419
+	// spreadsheet
+	// https://docs.google.com/spreadsheets/d/1-VmzIyWNhzmaAiSLaPCoY6ZnJaxl3G_bxcljgXgxWKU/edit#gid=225781419
 
 
 
@@ -52,18 +57,26 @@ async function main() {
 
 	// 2. LOOP THROUGH ALL TIMEZONES
 
-	let assetsFoundPerRow = 0,
+	let totalRecordsInSpreadsheet = dataArr.length,
 		assetsFoundPerRowTotal = 0,
 		currentTZ = "";
+
+
+
+	// first loop (in reverse) to remove those we don't want ...
+	for (var i = dataArr.length - 1; i >= 0; i--) {
+		// console.log(dataArr[i]);
+		// skip if no location data or the "include" flag is not set
+		if (!dataArr[i].location || !dataArr[i].include) {
+			dataArr.splice(i, 1);
+		}
+	}
+	console.log(`Compiling ${dataArr.length} (out of ${totalRecordsInSpreadsheet} total) rows`);
+
 
 	// loop through all rows
 	for (let i = 0; i < dataArr.length; i++) {
 		if (!dataArr[i]) continue;
-
-		// skip if no data
-		if (!dataArr[i].location) continue;
-		// only include those marked
-		if (!dataArr[i].include) continue;
 
 		// new timezone?
 		if (currentTZ !== dataArr[i].dir) {
@@ -73,48 +86,55 @@ async function main() {
 			// if (dataArr[i].location !== undefined) console.log(currentTZ);
 		}
 		let key = `${currentTZ}-${dataArr[i].num}-${dataArr[i].location}-${dataArr[i].object}`;
-		console.log("   ", key);
+
+		// console.log(`${i} - ${key}`);
+		// console.log(dataArr[i]);
+
 
 		finalObj[key] = {
-			location: dataArr[i].location,
-			plant: dataArr[i].plant,
+			// original items
+			offset24: dataArr[i].offset24 || "",
+			dir: dataArr[i].dir || "",
+			offsetUTC: dataArr[i].offsetUTC || "",
+			num: dataArr[i].num || "",
+			location: dataArr[i].location || "",
+			object: dataArr[i].object || "",
+			plant: dataArr[i].plant || "",
+			include: Number(dataArr[i].include) || 1,
+			bgColor: dataArr[i].bgColor || 'fff',
+			bgGrad1: dataArr[i].bgGrad1 || '',
+			bgGrad2: dataArr[i].bgGrad2 || '',
+			bgGrad3: dataArr[i].bgGrad3 || '',
+			scale: dataArr[i].scale || 1,
+
+			// add later
 			fileCount: 0,
 			filePath: '',
-			fileNames: [],
-			colors: [],
-			scale: 1
+			fileNames: []
 		};
 
 
 
 		// 3. GET ALL ASSET PATHS
 
-		// reset
-		assetsFoundPerRow = 0;
-
-		// add the path
+		// test path on Owen's Macbook Pro (override)
 		if (globals.USE_TEST_DIR)
-			// Owen's Macbook Pro (override)
 			finalObj[key].filePath = `UTC-ORIGINALS_03-03_01/${dataArr[i].object}/SVG/`;
 		else // Joelle's Mac Pro
 			finalObj[key].filePath = `${dataArr[i].dir}/${dataArr[i].num}/${dataArr[i].object}/SVG/`;
-		// add the filenames
-		console.log(`add the filenames ${basePath}/${finalObj[key].filePath}`);
-		finalObj[key].fileNames = await getFilesInDir(`${basePath}/${finalObj[key].filePath}`);
-		// add count
-		finalObj[key].fileCount = finalObj[key].fileNames.length;
-		// add colors
-		if (dataArr[i].hex1) finalObj[key].colors.push(dataArr[i].hex1);
-		if (dataArr[i].hex2) finalObj[key].colors.push(dataArr[i].hex2);
-		if (dataArr[i].hex3) finalObj[key].colors.push(dataArr[i].hex3);
-		// add scale
-		if (dataArr[i].scale) finalObj[key].scale = dataArr[i].scale;
 
-// console.log(dataArr[i])
+		// fileNames
+		// console.log(`add the filenames ${basePath}/${finalObj[key].filePath}`);
+		finalObj[key].fileNames = await getFilesInDir(`${basePath}/${finalObj[key].filePath}`);
+		// fileCount
+		finalObj[key].fileCount = finalObj[key].fileNames.length;
+
+
+
+		// console.log(dataArr[i])
 
 		// add to count for report
 		assetsFoundPerRowTotal += finalObj[key].fileCount;
-
 	}
 	console.log(finalObj);
 
@@ -125,8 +145,15 @@ async function main() {
 	console.log(`🐋 DATA EXPORT FINISHED ... rows: ${Object.keys(finalObj).length}, assets: ${assetsFoundPerRowTotal}`);
 
 	console.log(`#############################################################################\n`);
-}
-main();
+
+
+
+
+
+	return finalObj;
+};
+// exports.getData();
+
 
 
 /**
@@ -145,7 +172,7 @@ async function getFilesInDir(dirPath) {
 			// console.log(dirPath + file);
 			arr.push(file);
 		});
-	}).catch(err => console.error("ERROR in getFilesInDir()",err));
+	}).catch(err => console.error("ERROR in getFilesInDir()", err));
 
 	return arr;
 }
@@ -197,7 +224,7 @@ const getFilenames = async () => {
 			// console.log(file);
 			// console.log(importPath + file);
 			dirs.push(file);
-		}).catch(err => console.error("ERROR in getFilenames()",err));
+		}).catch(err => console.error("ERROR in getFilenames()", err));
 	// console.log(dirs.join("\n"));
 	return dirs;
 };

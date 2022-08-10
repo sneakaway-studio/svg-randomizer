@@ -19,9 +19,9 @@
 
 Column | Description | Default value
 --- | --- | ---
-`include` | Add a 1 to include files at this path |
-`hex1` | Background color for whole page | `fff`
-`hex2, hex3` | Add color to make a [gradient](https://cssgradient.io/) on top of background color | `fff`
+`include` | Add `1` to include files. Higher numbers change ratio (e.g. `1:2`) | `0`
+`bgColor` | Background color for whole page | `fff`
+`bgGrad1-3` | Background [gradients](https://cssgradient.io/) | `fff`
 `scale` | Increase/decrease scale. e.g. `1.5` = `150%` | `1` (`100%`)
 `placeHolder` | A google sheets hack. Any data is fine. | `0`
 

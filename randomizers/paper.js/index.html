@@ -72,7 +72,7 @@
 
 	let data;
 
-		let svgParentStr = '', // final string
+		let svgString = '', // final string
 			browser = {
 				w: window.innerWidth,
 				h: window.innerHeight,
@@ -111,9 +111,8 @@
 
 		async function randomizer() {
 
-			let svgParentArr = [],
-				count = FS_Number.randomIntBetween(settings.count.min, settings.count.max),
-				bgColorArr = [];
+			let svgArr = [],
+				count = FS_Number.randomIntBetween(settings.count.min, settings.count.max);
 
 			// for each nested SVG
 			for (let i = 0; i < count; i++) {
@@ -130,8 +129,7 @@
 				// console.log("imgObj", imgObj);
 				// console.log(s, x, y, r);
 
-				// save background color
-				bgColorArr = imgObj.colors;
+
 
 				let filePath = `/files/${imgObj.filePath}${FS_Object.randomArrayIndex(imgObj.fileNames)}`;
 

@@ -2,20 +2,32 @@
  *	Routes module - all the website and api endpoints
  */
 
+const fs = require('fs').promises;
+const path = require('path');
+
+
+async function getDataFromSheet() {
+	// require file
+	const exportPaths = require('../../export-paths');
+	// run export-google-sheets
+	return await exportPaths.getData();
+}
+async function getLocalJson(filePath) {
+	let data = await fs.readFile(filePath, 'utf8');
+	return data;
+}
 
 
 module.exports = function(app) {
-
 
 	/////////// WEBSITE ROUTES ///////////
 
 	// website home page
 	app.get('/', (req, res) => {
-		// render page
-		res.render('home', {
-
-		});
+		 res.sendFile(path.resolve((__dirname +'../../../../randomizers/index.html')));
 	});
+
+
 
 	/////////// API ROUTES ///////////
 
@@ -26,30 +38,32 @@ module.exports = function(app) {
 		});
 	});
 
-	// // get directory list
-	// app.get('/api/getFilenames', async (req, res) => {
-	// 	res.status(200).json(await dataSource.getFilenames());
-	// });
-	//
-	// // get all data
-	// app.get('/api/getData', async (req, res) => {
-	// 	res.status(200).json(await
-	//
-	//
-	// 			 fs.readFile('../../export-google-sheets/data/chasing-the-sun-data.json', 'utf8', (err, data) => {
-	// 				if (err) throw err;
-	// 				console.log(data);
-	// 				return data;
-	// 			});
-	//
-	//
-	// 	);
-	// });
-	//
-	// // get all files
-	// app.get('/api/getFiles', async (req, res) => {
-	// 	res.status(200).json(await dataSource.getFiles());
-	// });
+	// get remote data from google sheet
+	app.get('/api/getRemoteDataFromSheet', async (req, res) => {
+		// return the data
+		res.status(200).json(await getDataFromSheet());
+	});
+
+	app.get('/api/refreshLocalDataFromSheet', async (req, res) => {
+		// getDataFromSheet();
+		// return the data
+		res.status(200).json({
+			status: 1
+		});
+	});
+
+	// get local data
+	app.get('/api/getLocalData', async (req, res) => {
+		let data = await getLocalJson('../export-paths/data/all-data.json');
+		// console.log(1,data);
+		// parse the serialized json
+		data = JSON.parse(data);
+		// console.log(2,data);
+		// return the data
+		res.status(200).json(data);
+	});
+
+
 
 
 };

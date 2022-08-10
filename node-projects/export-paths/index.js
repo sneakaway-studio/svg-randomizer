@@ -105,7 +105,7 @@ exports.getData = async () => {
 			bgGrad1: dataArr[i].bgGrad1 || 'fff',
 			bgGrad2: dataArr[i].bgGrad2 || 'fff',
 			bgGrad3: dataArr[i].bgGrad3 || 'fff',
-			scale: dataArr[i].scale || 1,
+			scale: dataArr[i].scale || 50,
 
 			// add later
 			fileCount: 0,

@@ -28,8 +28,8 @@ let screenW = 1500,
 		},
 		// scale: min / max = decimal %
 		scale: {
-			min: 0.15,
-			max: 0.5
+			min: 15,
+			max: 5
 		},
 		// w,h,x,y: min / max = % of total
 		w: {
@@ -89,9 +89,9 @@ async function init() {
 // randomize all properties
 function propRandomizer(parentObj) {
 	let prop = {
-		scale: FS_Number.round(FS_Number.randomFloatBetween(settings.scale.min, settings.scale.max) * 100, 2),
-		x: FS_Number.round((FS_Number.randomFloatBetween(settings.x.min, settings.x.max)) * 0.5, 2),
-		y: FS_Number.round((FS_Number.randomFloatBetween(settings.y.min, settings.y.max)) * 0.5, 2),
+		scale: parentObj.scale || FS_Number.round(FS_Number.randomFloatBetween(settings.scale.min, settings.scale.max) * 100, 2),
+		x: FS_Number.round((FS_Number.randomFloatBetween(settings.x.min, settings.x.max)), 0) * 0.5,
+		y: FS_Number.round((FS_Number.randomFloatBetween(settings.y.min, settings.y.max)), 0) * 0.5,
 		rotation: FS_Number.randomIntBetween(settings.rotation.min, settings.rotation.max)
 	};
 	return prop;
@@ -127,8 +127,7 @@ async function randomizer() {
 		} = propRandomizer(parentObj);
 
 		let filePath = `/files/${parentObj.filePath}${FS_Object.randomArrayIndex(parentObj.fileNames)}`;
-		// console.log(selectionKeysArr[i].key, scale, x, y, rotation);
-		// console.log(browser, `w:${w}, h:${h}, x:${x}, y:${y}, r:${r}, scale:${scale}`);
+		console.log(selectionKeysArr[i].key, `x:${x}, y:${y}, rotation:${rotation}, scale:${scale}`);
 
 		// GET THE SVG FILE
 
@@ -279,7 +278,7 @@ document.querySelector(".updateData").addEventListener("click", function() {
 
 
 async function updateDataAsync(btn) {
-	await globals.refreshLocalDataFromSheet();
+	data = await globals.refreshLocalDataFromSheet();
 	init();
 	console.log("Data updated");
 	showSuccessButton(btn);

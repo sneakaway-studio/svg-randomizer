@@ -19,6 +19,11 @@ app.use(express.static('../../'));
 const globals = require('../../randomizers/assets/js/globals.js');
 app.use('/files', express.static(globals.BASE_PATH));
 
+// Middleware to turn off caching (having issues with spreadsheet data not refreshing)
+const nocache = require('nocache');
+app.use(nocache());
+
+
 
 // require routes file and pass context
 require('./app/routes')(app);

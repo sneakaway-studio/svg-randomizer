@@ -98,29 +98,27 @@ function createSketch2(p) {
 
 		// add image
 		p.image(img, x, y, screenW * scale, screenH * scale);
-		addRotation();
+		addRotationHack();
 	};
 }
 
-function addRotation(ele = "rect, circle, ellipse, line, polyline, polygon, path") {
-
-	// select all the shapes
+function addRotationHack(ele = "rect, circle, ellipse, line, polyline, polygon, path") {
+	// select all the potential shapes in the SVG
 	// https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes
-	var _p = document.querySelectorAll(ele);
-
-	for (let i = 0; i < _p.length; i++) {
-		console.log("addCSSRotationInline()", i, _p[i], _p[i].getBoundingClientRect());
+	var elements = document.querySelectorAll(ele);
+	// loop through them
+	for (let i = 0; i < elements.length; i++) {
+		console.log("addRotationHack()", i, elements[i], elements[i].getBoundingClientRect());
 
 		let deg = Math.random() * 360;
 
 		// ❌  INLINE CSS DOES NOT WORK IN SVG
-		// - it works in the browser, but not in Illustrator (doesn't support inline CSS??)
-		// _p[i].style.transform = `rotate(${deg}deg)`;
+		// - it works in the browser, but not in Illustrator (which doesn't support inline CSS(?))
+		// elements[i].style.transform = `rotate(${deg}deg)`;
 
 		// ✅  instead set the property directly
 		// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform
-		_p[i].setAttribute("transform", `rotate(${deg})`);
-
+		elements[i].setAttribute("transform", `rotate(${deg})`);
 	}
 }
 
@@ -150,8 +148,8 @@ function createSketch3(p) {
 			let scale = 1000 * (Math.random() * 0.25 + Math.random() * 0.25);
 
 			p.image(img[i], x, y, scale, scale);
-			// addRotation("g>svg");
-			addRotation();
+			// addRotationHack("g>svg");
+			addRotationHack();
 		}
 	};
 }
@@ -180,7 +178,7 @@ document.querySelector(".updateData").addEventListener("click", function() {
 
 
 async function updateDataAsync(btn) {
-	await globals.refreshLocalDataFromSheet();
+	data = await globals.refreshLocalDataFromSheet();
 	init();
 	console.log("Data updated");
 	showSuccessButton(btn);

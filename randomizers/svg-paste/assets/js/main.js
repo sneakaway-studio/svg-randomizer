@@ -182,9 +182,29 @@ async function randomizer() {
 	// console.log("svgArr", svgArr);
 
 
+
+let itemMetadata = ``;
+
+for (var key in data) {
+	if (data.hasOwnProperty(key)) {
+		itemMetadata += `\n${JSON.stringify(data[key], null, 2)}\n`;
+	}
+}
+
+
+// ${data[selectionKeysArr[0].key].location}-${data[selectionKeysArr[0].key].plant}
+
+
+
+
 	svgString = `
 
 <svg class="parent" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="1000" height="1000" viewBox="0 0 100 100">
+
+<!--
+Date: ${FS_Date.returnDateISO(null, ["", "-", "", ""])}
+${itemMetadata}
+-->
 
 <defs><linearGradient id="backgroundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
 	<stop offset="0%" style="stop-color:#${parentObj.bgGrad1};stop-opacity:1" />
@@ -251,10 +271,11 @@ function download(filename, textInput) {
 document.querySelector(".saveSVGstring").addEventListener("click", function() {
 	str = getSVGfileStr();
 	console.log("str", str);
-	var filename = `test-${FS_Date.returnDateISO()}.svg`;
+	// var filename = `test-${FS_Date.returnDateISO(null, ["", "-", "", ""])}.svg`;
+	var filename = `${data[selectionKeysArr[0].key].dir}-${data[selectionKeysArr[0].key].num}-${data[selectionKeysArr[0].key].location}-${data[selectionKeysArr[0].key].plant}-${FS_Date.returnDateISO(null, ["", "-", "", ""])}.svg`;
 	console.log("File saved", filename);
-	download(filename, str);
-	showSuccessButton(this);
+	// download(filename, str);
+	// showSuccessButton(this);
 }, false);
 
 /**

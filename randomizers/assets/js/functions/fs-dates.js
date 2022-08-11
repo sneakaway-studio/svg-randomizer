@@ -88,36 +88,44 @@ var FS_Date = (function() {
 
 
 
-// COMMENTED EVERYTHING ABOVE - NEED TO REMOVE MOMENT() FROM THIS LIB
+		// COMMENTED EVERYTHING ABOVE - NEED TO REMOVE MOMENT() FROM THIS LIB
 
 		/**
-		 *	Return a date in ISO string (2 versions)
+		 *	Return a date in ISO string
+		 *	returnDateISO() -> '2022-08-11T15:02:30.476Z' -> (UTC string)
+		 *	returnDateISO(null, ["", "-", "", ""]) -> '20220811-150230' -> (UTC string)
 		 */
-		returnDateISO: function(date = null, timeSeparator = "-", includeMillis = false) {
-			if (date == null) date = new Date();
-			let s = date.toISOString();
-			// console.log(s)
-			// -> "2011-12-19T15:28:46.493Z"
+		returnDateISO: function(d = null, delimit = ["-", "T", ":", "Z"]) {
+			let s = '';
+			if (d == null) d = new Date();
 
-			// remove milliseconds
-			if (!includeMillis)
+			// if no Z included then use local timezone
+			if (delimit[3] != "Z") {
+				// get offset, remove Z https://stackoverflow.com/a/72581185/441878
+				d = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
+			}
+
+			// convert to ISO format string
+			s = d.toISOString();
+			// console.log(s); // -> '2022-08-11T15:02:30.476Z'
+
+			// ? remove milliseconds
+			if (delimit[3] != "Z") {
+				s = s.slice(0, -1);
+				// console.log(s); // -> '2022-08-11T15:02:30.476'
 				s = s.substring(0, s.indexOf('.'));
-			// -> "2011-12-19T15:28:46"
-			// console.log(s)
+				// console.log(s); // -> '2022-08-11T15:02:30'
+			}
+			// use delimit arr to determine what is included ...
 
 			// replace time separator with hyphens
-			s = s.replace(/:/g, timeSeparator);
-			// console.log(s)
+			s = s.replace(/-/g, delimit[0]);
+			s = s.replace(/T/g, delimit[1]);
+			s = s.replace(/:/g, delimit[2]);
+			s = s.replace(/Z/g, delimit[3]);
+			// console.log(s); // -> '20220811-150230'
+
 			return s;
-		},
-		returnDateISOLongForm: function() {
-			var d = new Date();
-			return d.getUTCFullYear() + '-' +
-				this.pad(d.getUTCMonth() + 1) + '-' +
-				this.pad(d.getUTCDate()) + 'T' +
-				this.pad(d.getUTCHours()) + '-' +
-				this.pad(d.getUTCMinutes()) + '-' +
-				this.pad(d.getUTCSeconds()) + 'Z';
 		},
 		pad: function(n) {
 			return n < 10 ? '0' + n : n;

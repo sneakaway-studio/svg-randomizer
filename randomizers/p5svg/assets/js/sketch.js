@@ -163,8 +163,8 @@ function createSketch3(p) {
 
 // save SVG
 document.querySelector(".saveSVG").addEventListener("click", function() {
-	console.log("File saved", FS_Date.returnDateISO());
-	sketch.save(`test-${FS_Date.returnDateISO()}`);
+	console.log("File saved", FS_Date.returnDateISO(null, ["", "-", "", ""]));
+	sketch.save(`test-${FS_Date.returnDateISO(null, ["", "-", "", ""])}`);
 	showSuccessButton(this);
 });
 document.querySelector(".randomize").addEventListener("click", function() {

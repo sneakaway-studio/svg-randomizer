@@ -274,8 +274,8 @@ document.querySelector(".saveSVGstring").addEventListener("click", function() {
 	// var filename = `test-${FS_Date.returnDateISO(null, ["", "-", "", ""])}.svg`;
 	var filename = `${data[selectionKeysArr[0].key].dir}-${data[selectionKeysArr[0].key].num}-${data[selectionKeysArr[0].key].location}-${data[selectionKeysArr[0].key].plant}-${FS_Date.returnDateISO(null, ["", "-", "", ""])}.svg`;
 	console.log("File saved", filename);
-	// download(filename, str);
-	// showSuccessButton(this);
+	download(filename, str);
+	showSuccessButton(this);
 }, false);
 
 /**

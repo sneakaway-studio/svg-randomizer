@@ -5,12 +5,15 @@
 const fs = require('fs').promises;
 const path = require('path');
 
+var exportPaths = require('../../export-paths');
+
 
 async function getDataFromSheet() {
-	// require file
-	const exportPaths = require('../../export-paths');
 	// run export-google-sheets
-	return await exportPaths.getData();
+	let d = await exportPaths.getData();
+	// console.log("getDataFromSheet()");
+	// console.log(d);
+	return d;
 }
 async function getLocalJson(filePath) {
 	let data = await fs.readFile(filePath, 'utf8');
@@ -40,8 +43,9 @@ module.exports = function(app) {
 
 	// get remote data from google sheet
 	app.get('/api/refreshLocalDataFromSheet', async (req, res) => {
+		let result = await getDataFromSheet();
 		// return the data
-		res.status(200).json(await getDataFromSheet());
+		res.status(200).json(result);
 	});
 
 	// get local data

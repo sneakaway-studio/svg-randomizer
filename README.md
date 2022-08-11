@@ -4,11 +4,10 @@
 
 ## TO DO
 
-1. import svgs parts
-1. put them all in the browser, randomizing all the pieces
-1. export button
-1. check in Illustrator
-1. ability to also animate
+1. fix problem with cache / refresh
+1. update readme instructions
+1. update globals file to make easier to reuse
+1. animate
 
 
 

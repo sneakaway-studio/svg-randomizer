@@ -16,45 +16,45 @@ let data, selectionKeysArr = [];
 
 // INPUT / OUTPUT
 let screenW = 1500,
-	screenH = 1000,
-	browser = {
-		w: window.innerWidth,
-		h: window.innerHeight,
-	},
-	settings = {
-		count: {
-			min: 15,
-			max: 35
-		},
-		// scale: min / max = decimal %
-		scale: {
-			min: 15,
-			max: 5
-		},
-		// w,h,x,y: min / max = % of total
-		w: {
-			min: 10,
-			max: 40
-		},
-		h: {
-			min: 10,
-			max: 40
-		},
-		x: {
-			min: 10,
-			max: 90
-		},
-		y: {
-			min: 10,
-			max: 90
-		},
-		// rotation: min / max = 360 degrees
-		rotation: {
-			min: 0,
-			max: 360
-		}
-	},
-	count = 0;
+  screenH = 1000,
+  browser = {
+    w: window.innerWidth,
+    h: window.innerHeight,
+  },
+  settings = {
+    count: {
+      min: 30,
+      max: 50
+    },
+    // scale: min / max = decimal %
+    scale: {
+      min: 15,
+      max: 5
+    },
+    // w,h,x,y: min / max = % of total
+    w: {
+      min: 10,
+      max: 40
+    },
+    h: {
+      min: 10,
+      max: 40
+    },
+    x: {
+      min: 40,
+      max: 90
+    },
+    y: {
+      min: 40,
+      max: 90
+    },
+    // rotation: min / max = 360 degrees
+    rotation: {
+      min: 0,
+      max: 360
+    }
+  },
+  count = 0;
 
 // OUTPUT
 let svgString = '',
@@ -197,7 +197,10 @@ for (var key in data) {
 
 
 
-	svgString = `
+
+
+
+  svgString = `
 
 <svg class="parent" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="1000" height="1000" viewBox="0 0 100 100">
 
@@ -206,13 +209,23 @@ Date: ${FS_Date.returnDateISO(null, ["", "-", "", ""])}
 ${itemMetadata}
 -->
 
+`;
+
+  // GRADIENT OR DEFAULT TO BG COLOR?
+  // Joelle will only put in fff in the spreadsheet, while the defaults in export-paths is ffffff
+  if (parentObj.bgColor.length != 3) {
+
+    svgString += `
 <defs><linearGradient id="backgroundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
 	<stop offset="0%" style="stop-color:#${parentObj.bgGrad1};stop-opacity:1" />
 	<stop offset="35%" style="stop-color:#${parentObj.bgGrad2};stop-opacity:1" />
 	<stop offset="100%" style="stop-color:#${parentObj.bgGrad3};stop-opacity:1" />
 </linearGradient></defs>
 <rect x="-50" y="0" width="200" height="200" fill="url(#backgroundGrad)"></rect>
+`;
+  }
 
+  svgString += `
 ${svgArr.join("\n")}
 
 </svg>

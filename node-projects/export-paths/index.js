@@ -120,10 +120,10 @@ exports.getData = async () => {
 				object: dataArr[i].object || "",
 				plant: dataArr[i].plant || "",
 				include: Number(dataArr[i].include) || 1,
-				bgColor: dataArr[i].bgColor || 'fff',
-				bgGrad1: dataArr[i].bgGrad1 || 'fff',
-				bgGrad2: dataArr[i].bgGrad2 || 'fff',
-				bgGrad3: dataArr[i].bgGrad3 || 'fff',
+				bgColor: dataArr[i].bgColor || 'ffffff',
+				bgGrad1: dataArr[i].bgGrad1 || 'ffffff',
+				bgGrad2: dataArr[i].bgGrad2 || 'ffffff',
+				bgGrad3: dataArr[i].bgGrad3 || 'ffffff',
 				scale: dataArr[i].scale || 50,
 
 				// add later

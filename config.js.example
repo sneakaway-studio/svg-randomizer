@@ -6,14 +6,21 @@
     var config = {
 
         // FULL PATH TO SVG FILES
+		// *** RESTART SERVER (CTL+C, Up Arrow, Return) IF YOU CHANGE THESE !! ***
 
+		// Owen Macbook Pro
         // FULL_SVG_PATH: '/Users/owenmundy/Sites/_teaching/_code_web/svg-randomizer/tests/sample-svg-input',
-        // FULL_SVG_PATH: '/Users/joelledietrick/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS'
-        FULL_SVG_PATH: '/Volumes/GoogleDrive-102724189768272292084/My\ Drive/Art\ \(Dietrick\ Studio\)/_Artwork\ Process/Chasing\ the\ Sun/Artwork/UTC-ORIGINALS',
+
+		// Joelle MacPro
+		// FULL_SVG_PATH: '/Users/joelledietrick/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS'
+
+		// Joelle Macbook Pro
+		FULL_SVG_PATH: '/Volumes/GoogleDrive-102724189768272292084/My\ Drive/Art\ \(Dietrick\ Studio\)/_Artwork\ Process/Chasing\ the\ Sun/Artwork/UTC-ORIGINALS',
+
+
 
 		// USE TEST DIRECTORY (DEV ONLY)
-		USE_TEST_SVG_DIR: 0,
-
+		USE_TEST_SVG_DIR: 1,
     };
     if (typeof module === 'object' && module && typeof module.exports === 'object') {
         module.exports = config;

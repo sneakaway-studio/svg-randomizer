@@ -5,8 +5,8 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-const globals = require('../../randomizers/assets/js/globals.js');
-const basePath = globals.BASE_PATH;
+const CONFIG = require('../../config.js');
+const fullSVGPath = CONFIG.FULL_SVG_PATH;
 
 var exports = module.exports = {};
 
@@ -137,14 +137,14 @@ exports.getData = async () => {
 			// 3. GET ALL ASSET PATHS
 
 			// test path on Owen's Macbook Pro (override)
-			if (globals.USE_TEST_DIR)
+			if (CONFIG.USE_TEST_SVG_DIR)
 				finalObj[key].filePath = `UTC-ORIGINALS_03-03_01/${dataArr[i].object}/SVG/`;
 			else // Joelle's Mac Pro
 				finalObj[key].filePath = `${dataArr[i].dir}/${dataArr[i].num}/${dataArr[i].object}/SVG/`;
 
 			// fileNames
-			// console.log(`add the filenames ${basePath}/${finalObj[key].filePath}`);
-			finalObj[key].fileNames = await getFilesInDir(`${basePath}/${finalObj[key].filePath}`);
+			// console.log(`add the filenames ${fullSVGPath}/${finalObj[key].filePath}`);
+			finalObj[key].fileNames = await getFilesInDir(`${fullSVGPath}/${finalObj[key].filePath}`);
 			// fileCount
 			finalObj[key].fileCount = finalObj[key].fileNames.length;
 
@@ -247,7 +247,7 @@ async function getColorsFromSVG(path) {
 const getFilenames = async () => {
 	let dirs = [];
 	// loop through top level
-	fs.readdirSync(basePath).sort()
+	fs.readdirSync(fullSVGPath).sort()
 		.forEach(file => {
 			if (ignoredFiles(file)) return;
 			// console.log(file);

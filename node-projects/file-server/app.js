@@ -16,8 +16,8 @@ app.use(Middleware.showRequests);
 // make whole dir 'public' for testing
 app.use(express.static('../../'));
 // base dir
-const globals = require('../../randomizers/assets/js/globals.js');
-app.use('/files', express.static(globals.BASE_PATH));
+const CONFIG = require('../../config.js');
+app.use('/files', express.static(CONFIG.FULL_SVG_PATH));
 
 // Middleware to turn off caching (having issues with spreadsheet data not refreshing)
 const nocache = require('nocache');

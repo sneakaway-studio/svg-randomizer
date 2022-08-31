@@ -8,6 +8,7 @@
 	"undef": true,
 	"unused": false,
 	"globals": {
+		"CONFIG": false,
 		"globals": false,
 		"$": false,
 		"FS_Object": false,

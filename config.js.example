@@ -6,7 +6,7 @@
     var config = {
 
         // FULL PATH TO SVG FILES
-		// *** RESTART SERVER (CTL+C, Up Arrow, Return) IF YOU CHANGE THESE !! ***
+		// *** RESTART SERVER (CTL+C quits previous process, Up Arrow to get previous command, Return to run) IF YOU CHANGE THESE !! ***
 
 		// Owen Macbook Pro
         // FULL_SVG_PATH: '/Users/owenmundy/Sites/_teaching/_code_web/svg-randomizer/tests/sample-svg-input',

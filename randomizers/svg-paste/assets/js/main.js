@@ -27,9 +27,11 @@ let screenW = 1500,
 			max: 50
 		},
 		// scale: min / max = decimal %
+		// this is the default, to be used if the cts-data spreadsheet doesn't have the value
+		// e.g. adding 20 in the spreadsheet on one line could make just the house smaller
 		scale: {
-			min: 15,
-			max: 5
+			min: 4,
+			max: 7
 		},
 		// w,h,x,y: min / max = % of total
 		w: {
@@ -45,7 +47,7 @@ let screenW = 1500,
 			max: 90
 		},
 		y: {
-			min: 40,
+			min: 60,
 			max: 90
 		},
 		// rotation: min / max = 360 degrees

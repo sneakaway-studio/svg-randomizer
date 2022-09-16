@@ -15,5 +15,5 @@ node_modules
 credentials.json
 token.json
 .env
-globals.js
+config.js
 all-data.json

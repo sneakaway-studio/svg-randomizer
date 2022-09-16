@@ -6,7 +6,6 @@
 
 1. fix problem with cache / refresh
 1. update readme instructions
-1. update globals file to make easier to reuse
 1. animate
 
 

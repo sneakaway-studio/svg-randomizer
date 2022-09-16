@@ -10,8 +10,8 @@
 ********************************************************/
 
 // GLOBALS
-const basePath = globals.BASE_PATH;
-// console.log("globals",globals)
+const fullSVGPath = CONFIG.FULL_SVG_PATH;
+console.log("CONFIG", CONFIG)
 
 // DATA
 let data, selectionKeysArr = [];

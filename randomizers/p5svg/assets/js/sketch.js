@@ -81,7 +81,7 @@ function createSketch1(p) {
 function createSketch2(p) {
 	p.preload = function() {
 		// test2 - load a single
-		img = p.loadSVG('../../tests/sample-svg-input/UTC-ORIGINALS_03-03_01/house/SVG/Asset 276.svg');
+		img = p.loadSVG('../../tests/sample-svg-input/UTC-ORIGINALS-SVG/03-03/01/house/SVG/Asset 276.svg');
 	};
 	p.setup = function() {
 		p.noLoop();
@@ -127,7 +127,7 @@ function createSketch3(p) {
 		console.log(`preload()`); //  runs once, halting setup until finished
 
 		// test2 - load a single
-		img = p.loadSVG('../../tests/sample-svg-input/UTC-ORIGINALS_03-03_01/house/SVG/Asset 276.svg');
+		img = p.loadSVG('../../tests/sample-svg-input/UTC-ORIGINALS-SVG/03-03/01/house/SVG/Asset 276.svg');
 		// ^ THIS HAS TO RUN ONCE BEFORE THE BELOW WILL WORK
 		// test3 - load joelle's
 		for (let i = 0; i < selectionKeysArr.length; i++) {

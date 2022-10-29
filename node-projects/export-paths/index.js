@@ -139,7 +139,7 @@ exports.getData = async () => {
 
 			// test path on Owen's Macbook Pro (override)
 			if (CONFIG.USE_TEST_SVG_DIR)
-				finalObj[key].filePath = `UTC-ORIGINALS_03-03_01/${dataArr[i].object}/SVG/`;
+				finalObj[key].filePath = `UTC-ORIGINALS-SVG/03-03/01/${dataArr[i].object}/SVG/`;
 			else // Joelle's Mac Pro
 				finalObj[key].filePath = `${dataArr[i].dir}/${dataArr[i].num}/${dataArr[i].object}/SVG/`;
 

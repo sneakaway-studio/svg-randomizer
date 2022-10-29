@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440.05 160.28">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bac0cc;
+      }
+
+      .cls-2 {
+        fill: #767f84;
+      }
+    </style>
+  </defs>
+  <g id="Left-Lower">
+    <g id="Left-Lower-Wall">
+      <polyline id="Base-leftlower" class="cls-2" points=".05 2.06 440.05 0 440.05 160.28 .05 160.28 .05 2.06"/>
+      <polygon id="AccentLine-leftlower" class="cls-1" points="0 42.73 437.88 41.16 437.88 46.48 0 46.48 0 42.73"/>
+    </g>
+  </g>
+</svg>

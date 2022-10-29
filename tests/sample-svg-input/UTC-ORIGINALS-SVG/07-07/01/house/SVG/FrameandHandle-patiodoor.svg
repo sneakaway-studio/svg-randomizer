@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260.84 237.12">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dfe1e6;
+      }
+
+      .cls-2 {
+        fill: #767f84;
+      }
+
+      .cls-3 {
+        fill: #5e6163;
+      }
+    </style>
+  </defs>
+  <g id="PatioDoor">
+    <g id="FrameandHandle-patiodoor">
+      <path id="PatioDoorFrame" class="cls-1" d="M162.4,1.57V191.7l-70.06,8.44V.29l-15.9-.29-2.55,203.48L.21,214.86v10.01l242.62-37.24V3.4l-80.43-1.83Zm72.02,173.66l-50.77,4.81V12.07h51.39l-.63,163.17Z"/>
+      <polygon id="DoorHandle" class="cls-3" points="236.54 86.77 242 86.77 242 108.35 236.87 108.35 236.54 86.77"/>
+      <rect class="cls-3" x="232.19" y="93.67" width="11.48" height="2.6"/>
+      <polyline class="cls-2" points=".21 224.87 0 237.12 153.32 211.45 260.84 193.46 242.83 187.63 .21 224.87"/>
+    </g>
+  </g>
+</svg>

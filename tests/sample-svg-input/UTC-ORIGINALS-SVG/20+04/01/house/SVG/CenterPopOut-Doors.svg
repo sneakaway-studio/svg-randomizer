@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.69 279.38">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a1a7b4;
+      }
+
+      .cls-2 {
+        fill: #bac0cc;
+      }
+
+      .cls-3 {
+        fill: #303030;
+      }
+    </style>
+  </defs>
+  <g id="CenterPopOut">
+    <g id="CenterPopOut-Doors">
+      <polygon class="cls-2" points="99.3 279.38 8.32 277.61 9.3 112.24 100.8 103.39 99.3 279.38"/>
+      <polygon class="cls-3" points="14.46 128.04 45.53 128.04 44.56 274.57 13.59 274.57 14.46 128.04"/>
+      <polygon class="cls-3" points="53.42 128.04 79.64 126.85 77.63 274.57 51.09 274.57 53.42 128.04"/>
+      <polygon class="cls-3" points="88.14 272.93 87.84 126.85 100.6 126.85 99.36 272.93 88.14 272.93"/>
+      <polygon class="cls-1" points="1.42 113 100.8 103.39 101.6 10.52 .58 25.24 1.42 113"/>
+      <polygon class="cls-2" points="0 25.32 101.6 10.52 101.69 0 .38 14.87 0 25.32"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 433.95 492.74">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a1a7b4;
+      }
+
+      .cls-2 {
+        fill: #767f84;
+      }
+    </style>
+  </defs>
+  <g id="LeftWallandWindows">
+    <g id="leftWall">
+      <path class="cls-1" d="M3.87,129L0,482.42l426.53,10.31L433.87,5.13,3.87,129Zm61.26,113.88l-12.86,.56v-43.56h12.86v43Zm143.13-25.26l-17.62,1.4-1.61-49.89,19.23-2.39v50.87Zm19.59,204.85l-18.58,1.01,.75-48.57,17.83-.9v48.46Zm118.74-7.98l-23.74,1.09v-54.43l23.74-1.09v54.43Zm30.89-231.62l-23.95,2.59-.9-54.05,24.85-4.33v55.79Z"/>
+      <polygon class="cls-2" points="3.72 123.6 433.95 0 433.87 5.13 3.87 129 3.72 123.6"/>
+    </g>
+  </g>
+</svg>

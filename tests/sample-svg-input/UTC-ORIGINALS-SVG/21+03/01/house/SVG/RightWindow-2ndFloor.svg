@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119.34 207.86">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #303030;
+      }
+    </style>
+  </defs>
+  <g id="_2ndFloor" data-name="2ndFloor">
+    <g id="RightWindow-2ndFloor">
+      <path id="RightWindowFrame-2ndFloor" class="cls-1" d="M1.38,0L0,207.86H119.05L119.34,.15,1.38,0ZM107.39,205.83H3.44V5.83l104.56,.75-.6,199.25Z"/>
+      <polygon class="cls-1" points="81.46 37.78 107.99 6.57 107.99 15.7 84.92 37.79 84.04 207.35 81.46 206.66 81.46 37.78"/>
+    </g>
+  </g>
+</svg>

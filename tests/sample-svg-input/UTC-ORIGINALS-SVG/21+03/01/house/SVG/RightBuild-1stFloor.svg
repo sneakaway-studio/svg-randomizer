@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 589.89 395.87">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a1a7b4;
+      }
+
+      .cls-2 {
+        fill: #bac0cc;
+      }
+
+      .cls-3 {
+        fill: #767f84;
+      }
+    </style>
+  </defs>
+  <g id="_1stFloor" data-name="1stFloor">
+    <g id="RightBuild-1stFloor">
+      <polygon class="cls-1" points="136.51 392.93 119.68 391.4 119.84 8.78 136.31 1.72 136.51 392.93"/>
+      <polyline class="cls-2" points="581.27 0 136.31 1.72 136.51 392.93 169.35 395.87 589.89 395.87"/>
+      <polygon class="cls-3" points="1.65 371.08 120.1 381.19 120.32 125.63 0 159.69 1.65 371.08"/>
+    </g>
+  </g>
+</svg>

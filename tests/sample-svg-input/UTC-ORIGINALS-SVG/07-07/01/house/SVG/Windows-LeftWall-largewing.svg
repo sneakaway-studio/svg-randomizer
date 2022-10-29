@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 515.56 838.23">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a1a7b5;
+      }
+
+      .cls-2 {
+        fill: #bac0cc;
+      }
+
+      .cls-3 {
+        fill: #767f84;
+      }
+
+      .cls-4 {
+        fill: #5e6163;
+      }
+    </style>
+  </defs>
+  <g id="LW-LW">
+    <g id="Windows-LeftWall-largewing">
+      <path id="leftwall-largewing" class="cls-1" d="M515.56,838.23L510.53,0,0,295.02l206.62,21.05-.39,445.6,309.33,76.57Zm-107.86-131.92l-30.51-3.4v-119.27h28.7l1.82,122.67Zm-31.23-432.76l26.01-10.58,1.61,117.65-28.47,6.83,.85-113.9Z"/>
+      <g id="topwindow">
+        <polygon class="cls-2" points="402.47 240.73 408.57 242.53 409.29 381.52 404.09 380.62 402.47 240.73"/>
+        <polygon class="cls-2" points="351 393.36 404.09 380.62 409.29 381.52 352.44 395.69 351 393.36"/>
+        <polygon class="cls-4" points="376.47 273.55 349.53 262.83 402.47 240.73 402.47 262.69 376.47 273.55"/>
+        <polygon class="cls-3" points="351 393.36 376.25 387.3 376.47 273.55 349.53 262.83 351 393.36"/>
+      </g>
+      <g id="lowerwindow-largewing">
+        <polygon class="cls-4" points="351.44 581.32 411 580.5 405.86 584.03 351.44 582.73 351.44 581.32"/>
+        <polygon class="cls-2" points="405.86 580.5 411 580.5 411.71 723.82 408.2 723.82 405.86 580.5"/>
+        <polygon class="cls-2" points="352.4 715.11 376.96 702.65 407.91 705.59 408.2 723.82 352.4 715.11"/>
+        <polygon class="cls-3" points="351.44 582.73 377.84 583.36 376.96 702.65 352.4 715.11 351.44 582.73"/>
+      </g>
+    </g>
+  </g>
+</svg>

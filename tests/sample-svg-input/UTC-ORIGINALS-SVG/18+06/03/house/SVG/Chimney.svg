@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.04 100.61">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bac0cc;
+      }
+
+      .cls-2 {
+        fill: #dfe1e6;
+      }
+    </style>
+  </defs>
+  <g id="Chimney">
+    <g id="Chimney-2" data-name="Chimney">
+      <polygon id="Front-Chimney" class="cls-2" points="14.74 0 73.45 0 75.04 100.61 17.68 99.3 14.74 0"/>
+      <polygon class="cls-1" points="0 15.19 14.74 0 17.68 99.3 3.4 99.3 0 15.19"/>
+    </g>
+  </g>
+</svg>

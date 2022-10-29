@@ -98,7 +98,11 @@ async function convertAllAtPath(inputPath, subdir = "house") {
 	// 5. loop through each and create the PNG from SVG
 	inputFiles.forEach(async (item, i) => {
 		console.log(i, item);
-		await convertSVG2PNG(svgDir, item, pngDir);
+		let w=1000,h=1000;
+		if (subdir == "house") {
+			w=2500; h=2500;
+		}
+		await convertSVG2PNG(svgDir, item, pngDir, w, h);
 	});
 }
 
@@ -112,11 +116,11 @@ async function convertAllAtPath(inputPath, subdir = "house") {
 /**
  *	Convert SVG > PNG
  */
-async function convertSVG2PNG(inputPath, filename, outputPath) {
+async function convertSVG2PNG(inputPath, filename, outputPath, w=1000,h=1000) {
 	sharp(inputPath + filename)
 		.resize({
-			width: 2000,
-			height: 2000,
+			width: w,
+			height: h,
 			// fit: sharp.fit.contain
 			fit: 'inside'
 		})

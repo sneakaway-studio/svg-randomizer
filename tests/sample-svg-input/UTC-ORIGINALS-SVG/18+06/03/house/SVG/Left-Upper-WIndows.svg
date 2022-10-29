@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226.77 58.44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bac0cc;
+      }
+
+      .cls-2 {
+        fill: #424343;
+      }
+    </style>
+  </defs>
+  <g id="Left-Upper">
+    <g id="Left-Upper-WIndows">
+      <rect id="_3window-leftupper" data-name="3window-leftupper" class="cls-2" x="185.04" y="3.9" width="41.72" height="53.54"/>
+      <rect id="_2window-leftupper" data-name="2window-leftupper" class="cls-2" x="79.22" y="3.9" width="42.48" height="54.54"/>
+      <rect id="_1Window-leftupper" data-name="1Window-leftupper" class="cls-2" x="27.01" y="4.16" width="41.59" height="54.28"/>
+      <rect id="_1shade-leftupper" data-name="1shade-leftupper" class="cls-1" width="44.54" height="3.64"/>
+      <rect id="_2shade-leftupper" data-name="2shade-leftupper" class="cls-1" x="54.45" y="0" width="44.54" height="3.64"/>
+      <rect id="_3shade-leftupper" data-name="3shade-leftupper" class="cls-1" x="167.26" y="0" width="44.54" height="3.64"/>
+    </g>
+  </g>
+</svg>

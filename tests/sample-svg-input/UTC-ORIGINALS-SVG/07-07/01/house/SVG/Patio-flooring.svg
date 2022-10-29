@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 549.21 160.43">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a1a7b5;
+      }
+    </style>
+  </defs>
+  <g id="Patio">
+    <g id="Patio-flooring">
+      <polyline class="cls-1" points="0 57.2 167.81 160.43 549.21 51.95 339.33 0 0 57.2"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 321.98 622.15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a1a7b4;
+      }
+
+      .cls-2 {
+        fill: #bac0cc;
+      }
+
+      .cls-3 {
+        fill: #424343;
+      }
+
+      .cls-4 {
+        fill: #575959;
+      }
+
+      .cls-5 {
+        fill: #5e6263;
+      }
+
+      .cls-6 {
+        fill: #767f84;
+      }
+    </style>
+  </defs>
+  <g id="CenterPopOut">
+    <g id="CenterPopOut-Walls">
+      <polygon id="UpperRim-PopOut" class="cls-1" points="212.09 0 319.23 37.31 319.23 43.89 212.33 6.61 212.09 0"/>
+      <polygon id="PopOutFacing-Right" class="cls-2" points="212.33 6.61 319.23 43.89 321.98 620.44 205.67 622.15 212.33 6.61"/>
+      <polygon class="cls-6" points="29.28 619.39 0 619.39 8.3 68.02 212.33 6.61 205.67 622.15 142.48 620.44 146.87 106.08 31.72 136.82 29.28 619.39"/>
+      <polyline class="cls-3" points="146.87 106.08 146.33 169.81 31.72 136.82 146.87 106.08"/>
+      <polygon class="cls-5" points="51.58 610.01 29.28 619.39 31.72 136.82 146.33 169.81 144.94 332.4 43.63 347.27 44.67 445.4 52.55 444.64 51.58 610.01"/>
+      <polygon class="cls-4" points="4.1 63.86 4.1 69.1 8.3 68.02 212.33 6.61 212.09 0 4.1 63.86"/>
+    </g>
+  </g>
+</svg>

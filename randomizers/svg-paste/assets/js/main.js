@@ -24,31 +24,31 @@ let screenW = 1500,
     settings = {
         count: {
             min: 30,
-            max: 50
+            max: 40
         },
         // scale: min / max = decimal %
 		// this is the default, to be used if the cts-data spreadsheet doesn't have the value
 		// e.g. adding 20 in the spreadsheet on one line could make just the house smaller
         scale: {
-			min: 4,
-			max: 7
+			min: 2,
+			max: 15
         },
         // w,h,x,y: min / max = % of total
         w: {
-            min: 10,
-            max: 40
+            min: 5,
+            max: 70
         },
         h: {
-            min: 10,
-            max: 40
+            min: 5,
+            max: 70
         },
         x: {
-            min: 40,
-            max: 90
+            min: 0,
+            max: 130
         },
         y: {
-            min: 60,
-            max: 90
+            min: 40,
+            max: 120
         },
         // rotation: min / max = 360 degrees
         rotation: {

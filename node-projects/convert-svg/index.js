@@ -6,7 +6,7 @@
 const sharp = require("sharp");
 const fse = require('fs-extra');
 
-// leave the project to get the
+// leave the project to get the files lib
 var FS_Files = require("../../../om-functions-js/lib/fs-files");
 
 const testPathBase = '../../tests/sample-svg-input/UTC-ORIGINALS'; // -SVG | -PNG

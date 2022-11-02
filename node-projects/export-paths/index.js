@@ -4,7 +4,9 @@
 
 const fs = require('fs').promises;
 const path = require('path');
-var FS_Files = require("../om-functions-js/fs-files");
+
+// leave the project to get the files lib
+var FS_Files = require("../../../om-functions-js/lib/fs-files");
 
 const CONFIG = require('../../config.js');
 const fullSVGPath = CONFIG.FULL_SVG_PATH;

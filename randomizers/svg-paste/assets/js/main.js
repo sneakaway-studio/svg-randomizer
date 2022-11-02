@@ -126,8 +126,8 @@ async function randomizer() {
             rotation
         } = propRandomizer(parentObj);
 
-        let filePath = `/files/${parentObj.filePath}${FS_Object.randomArrayIndex(parentObj.fileNames)}`;
-        console.log(selectionKeysArr[i].key, `x:${x}, y:${y}, rotation:${rotation}, scale:${scale}`);
+		let filePath = `/files/${parentObj.filePath}${FS_Object.randomArrayIndex(parentObj.fileNames)}`;
+		// console.log(selectionKeysArr[i].key, `x:${x}, y:${y}, rotation:${rotation}, scale:${scale}`);
 
         // GET THE SVG FILE
 
@@ -147,6 +147,11 @@ async function randomizer() {
         // get viewBox values
         // let viewBox = FS_HTML.getAllAttributeValues(svgChildStr, "viewBox")[0].split(" ");
         // console.log(viewBox);
+
+		// remove properties that will be duplicated once we randomize them
+		// remove x and y
+		svgChildStr = svgChildStr.replace(/x=(.*)y=(.*)/gi, '');
+		// console.log("svgChildStr",svgChildStr);
 
         // apply style to main Layer id
         let ids = FS_HTML.getAllAttributeValues(svgChildStr, "id");

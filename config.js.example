@@ -19,8 +19,8 @@
 
 
 
-		// USE TEST DIRECTORY (DEV ONLY)
-		USE_TEST_SVG_DIR: 1,
+		// DIRECTORY (CHANGE FOR DEV)
+		SVG_DIR: "UTC-ORIGINALS",
     };
     if (typeof module === 'object' && module && typeof module.exports === 'object') {
         module.exports = config;

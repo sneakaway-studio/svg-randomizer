@@ -28,7 +28,7 @@ Column | Description | Default value
 
 1. Open [Atom](https://atom.io/)
 1. Open `/node-projects/export-paths` in Terminal (right+click and choose "Open Terminal Here")
-1. Type `node index.js` and hit return. This exports data from the spreadsheet to `/node-projects/export-paths/data/all-data.json`
+1. Type `node index.js` and hit return. This exports data from the spreadsheet to `/node-projects/export-paths/data/data-tz.json`
 1. To re-export data, press the up arrow and return each time.
 
 

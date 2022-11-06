@@ -43,7 +43,7 @@ async function getDataFromGoogleSheets() {
 
 
 
-exports.getData = async () => {
+exports.getData = async (all=false) => {
 	try {
 		let dataArr = [],
 			finalObj = {};
@@ -65,13 +65,14 @@ exports.getData = async () => {
 			currentTZ = "";
 
 
-
-		// first loop (in reverse) to remove those we don't want ...
-		for (var i = dataArr.length - 1; i >= 0; i--) {
-			// console.log(dataArr[i]);
-			// skip if no location data or the "include" flag is not set
-			if (!dataArr[i].location || !dataArr[i].include) {
-				dataArr.splice(i, 1);
+		if (!all){
+			// first loop (in reverse) to remove those we don't want ...
+			for (var i = dataArr.length - 1; i >= 0; i--) {
+				// console.log(dataArr[i]);
+				// skip if no location data or the "include" flag is not set
+				if (!dataArr[i].location || !dataArr[i].include) {
+					dataArr.splice(i, 1);
+				}
 			}
 		}
 		console.log(`\n#############################################################################`);
@@ -126,8 +127,13 @@ exports.getData = async () => {
 			console.log(CONFIG.SVG_DIR);
 			finalObj[key].filePath = `${CONFIG.SVG_DIR}/${dataArr[i].dir}/${dataArr[i].num}/${dataArr[i].object}/SVG/`;
 
+
+			// override so links to test files works
+// finalObj[key].filePath = `UTC-ORIGINALS-SVG/21+03/01/${dataArr[i].object}/SVG`;
+
+
 			// fileNames
-			// console.log(`add the filenames ${fullSVGPath}/${finalObj[key].filePath}`);
+			console.log(`add the filenames ${fullSVGPath}/${finalObj[key].filePath}`);
 			finalObj[key].fileNames = await FS_Files.getFilesInDir(`${fullSVGPath}/${finalObj[key].filePath}`);
 			// fileCount
 			finalObj[key].fileCount = finalObj[key].fileNames.length;
@@ -144,7 +150,10 @@ exports.getData = async () => {
 
 
 		// 3. WRITE THE DATA
-		await fs.writeFile(path.resolve(__dirname, './data/all-data.json'), JSON.stringify(finalObj));
+		if (all)
+			await fs.writeFile(path.resolve(__dirname, './data/data-all.json'), JSON.stringify(finalObj));
+		else
+			await fs.writeFile(path.resolve(__dirname, './data/data-tz.json'), JSON.stringify(finalObj));
 
 
 
@@ -165,7 +174,7 @@ exports.getData = async () => {
 		console.error(err);
 	}
 };
-// exports.getData();
+// exports.getData(true);
 
 
 

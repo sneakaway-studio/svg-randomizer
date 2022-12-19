@@ -20,10 +20,10 @@ const CONFIG = require('../../config.js');
 const basePath = CONFIG.FULL_SVG_PATH;
 
 
-const finishedTimezones = [
+let finishedTimezones = [
 
 	"00-00/01",
- 	"01-01/02",
+	"01-01/02",
 	// "02-02/01",
 	"03-03/01",
 	// "04-04/03",
@@ -36,15 +36,19 @@ const finishedTimezones = [
 	"11-11/03",
 	"12-12/01",
 	// "13+11/02",
+	"14+10/02",
 	// "15+09/02",
-						//"16+08/04",
+	"16+08/04",
+	"17+07/01",
+	"18+06/03",
+	"19+05/01",
 	// "20+04/01",
 	// "21+03/01",
-
-
-
-
+	"22+02/03",
+	"23+01/03"
 ];
+  
+finishedTimezones = ["23+01/03"];
 
 
 (async function() {
@@ -56,7 +60,7 @@ const finishedTimezones = [
 		// we can just copy what we want
 		// timezoneLoop(["copyPNG"], ["03-03/01"], basePath, testPathBase);
 
-		timezoneLoop(["copyPNG"], finishedTimezones, basePath, unityPathBase);
+		timezoneLoop(["copyPNG"], finishedTimezones, basePath, unityPathBase, true);
 
 	} catch (e) {
 		console.error(e);
@@ -64,7 +68,7 @@ const finishedTimezones = [
 })();
 
 
-async function timezoneLoop(commands, specificDirectories, inputPath, outputPath) {
+async function timezoneLoop(commands, specificDirectories, inputPath, outputPath, deleteExisting) {
 	// get directories to convert or copy
 	let inputDirs = await FS_Files.getFilesInDir(inputPath, ["folders"]);
 	console.log(inputDirs, basePath);
@@ -164,6 +168,13 @@ async function timezoneLoop(commands, specificDirectories, inputPath, outputPath
 
 			if (commands.includes("copyPNG")) {
 				console.log(i, commands, "🐠 COPY PNG");
+
+				if (deleteExisting) {
+					fse.removeSync(`${outputPath}-PNG/${inputSubDir}/${inputSubSubDir}/`, {
+						recursive: true,
+						force: true
+					});
+				}
 
 				// HOUSE
 				FS_Files.copyFiles(

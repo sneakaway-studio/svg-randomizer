@@ -134,7 +134,7 @@ exports.getData = async (all=false) => {
 
 			// fileNames
 			console.log(`add the filenames ${fullSVGPath}/${finalObj[key].filePath}`);
-			finalObj[key].fileNames = await FS_Files.getFilesInDir(`${fullSVGPath}/${finalObj[key].filePath}`);
+			finalObj[key].fileNames = await FS_Files.getFilesInDir(`${fullSVGPath}/${finalObj[key].filePath}`, "files", "fileExts", ".svg");
 			// fileCount
 			finalObj[key].fileCount = finalObj[key].fileNames.length;
 

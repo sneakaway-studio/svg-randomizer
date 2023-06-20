@@ -13,14 +13,14 @@ const fullSVGPath = CONFIG.FULL_SVG_PATH;
 
 var exports = module.exports = {};
 
-
+// 1. Get data from Google sheets...
 async function getDataFromGoogleSheets() {
 
 	// spreadsheet
 	// https://docs.google.com/spreadsheets/d/1-VmzIyWNhzmaAiSLaPCoY6ZnJaxl3G_bxcljgXgxWKU/edit#gid=225781419
 
 
-	// the google sheets api method ...
+	// a. Method using Google API: (has issue because Google increased their security)
 	//
 	// // require file
 	// const exportGoogleSheets = require('../export-google-sheets/quickstart.js');
@@ -49,10 +49,11 @@ async function getDataFromGoogleSheets() {
  * Main function to get data, called from outside module
  */
 exports.getData = async (all = false) => {
-	try {
-		let dataArr = [],
-			finalObj = {};
+	
+	let dataArr = [],
+		finalObj = {};
 
+	try {
 		dataArr = await getDataFromGoogleSheets();
 	} catch (err) {
 		console.error("getDataFromGoogleSheets()", err);
@@ -137,11 +138,18 @@ exports.getData = async (all = false) => {
 
 
 			// override so links to test files works
-			// finalObj[key].filePath = `UTC-ORIGINALS-SVG/21+03/01/${dataArr[i].object}/SVG`;
+// finalObj[key].filePath = `UTC-ORIGINALS-SVG/21+03/01/${dataArr[i].object}/SVG`;
 
 			// fileNames
-			console.log(`add the filenames ${fullSVGPath}/${finalObj[key].filePath}`);
+			console.log(`Look up filenames ${fullSVGPath}/${finalObj[key].filePath}`);
 			finalObj[key].fileNames = await FS_Files.getFilesInDir(`${fullSVGPath}/${finalObj[key].filePath}`, "files", "fileExts", ".svg");
+
+			if (!finalObj[key].fileNames || finalObj[key].fileCount < 0) {
+				console.warn("❌ Skipping directory / files found = 0", finalObj[key].fileNames);
+				// continue;
+				throw new Error("NO FILES FOUND")
+			}
+
 			// fileCount
 			finalObj[key].fileCount = finalObj[key].fileNames.length;
 
@@ -184,7 +192,7 @@ exports.getData = async (all = false) => {
 	return finalObj;
 
 };
-// exports.getData(true);
+exports.getData(true);
 
 
 

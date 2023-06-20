@@ -5,7 +5,7 @@
 		// PROJECT-SPECIFIC PATHS
 
 
-		ALL_DATA_PATH_RELATIVE_RANDOMIZERS: '../../../node-projects/export-paths/data/all-data.json',
+		ALL_DATA_PATH_RELATIVE_RANDOMIZERS: '../../../node-projects/export-paths/data/data-all.json',
 		ALL_DATA_API_URL: 'http://localhost:3000/api/refreshLocalDataFromSheet',
 
 		BASE_PATH_RELATIVE_RANDOMIZERS: "../../",

@@ -30,22 +30,20 @@ Column | Description | Default value
 `placeHolder` | A google sheets hack. Any data is fine. | `0`
 
 
-### Step 2. Export Spreadsheet Data*
+### Step 2. Export Spreadsheet Data
 
-The fileserver now lets you export by clicking a button.
+Skip this step—the fileserver now lets you export by clicking a button. 
 
-<!-- 1. In Github Desktop, open repository in VS Code (Shift + Command + A)
-1. Right click on `/node-projects/export-paths` and choose "Open in Integrated Terminal" to open a terminal in VS Code.
-1. Type `node index.js` and hit return. This exports data from the spreadsheet to `/node-projects/export-paths/data/data-tz.json`
-1. To re-export data, press the up arrow and return each time. -->
+> Testing notes: 
+> - Exports data from spreadsheet to `/node-projects/export-paths/data/data-tz.json`
+> - To start nodemon w/ignore flags use: `npm run start-dev` 
 
 
-### Step 3: Start the file-server*
+### Step 3: Start the file-server
 
-1. Open VS Code
+1. Open VS Code (from Github Desktop use Shift + Command + A)
 1. Right click on `/node-projects/file-server` and choose "Open in Integrated Terminal" to open a terminal in VS Code.
-1. Type `node server.js` and hit return
-1. This starts the test server. 
+1. Type `npm run start` and hit return to start the test server. 
 1. View randomizer http://localhost:3000/randomizers/
 1. Print page to make image
 

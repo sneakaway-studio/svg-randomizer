@@ -53,11 +53,7 @@ The fileserver now lets you export by clicking a button.
 
 ### Step 4: Export SVG
 
-#### SVG Copy / Paste method
-
-1. Go to http://localhost:3000/randomizers/svg-paste/
-1. Inspect the page and search for "SVG" in the code
-1. Click to copy / paste svg code
+1. Click the button
 
 
 
@@ -74,7 +70,18 @@ The fileserver now lets you export by clicking a button.
 
 
 
+## Notes
 
-## Working with Illustrator
+### Working with Illustrator
 
 - Illustrator does not support using CSS inside SVGs. You must use the attributes which are built-in
+
+
+### Save an SVG from a web page using copy / paste
+
+1. Go to the URL
+1. Inspect the page and search for "SVG" in the code
+1. Right click to copy svg code to clipboard
+1. Paste svg code in a text file
+
+

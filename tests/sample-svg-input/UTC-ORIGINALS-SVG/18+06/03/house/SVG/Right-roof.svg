@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 344.19 29.11">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a1a7b4;
+      }
+
+      .cls-2 {
+        fill: #424343;
+      }
+
+      .cls-3 {
+        fill: #5e6263;
+      }
+    </style>
+  </defs>
+  <g id="Right-Roof">
+    <g id="Right-roof">
+      <polygon id="Roof-Base" class="cls-2" points="0 22.81 16.25 5.24 344.19 0 305.06 29.11 0 22.81"/>
+      <polyline class="cls-3" points="250.03 8.11 231.21 27.59 238.49 27.74 256.8 15.38 256.8 8.11 250.03 8.11"/>
+      <rect id="SupportCap8" class="cls-1" x="250.03" y="8.11" width="6.76" height="7.27"/>
+      <polyline id="Support7" class="cls-3" points="220.23 8.11 202.22 26.99 208.07 27.11 226.99 15.38 226.99 8.11 220.23 8.11"/>
+      <rect id="SupportCap7" class="cls-1" x="220.23" y="8.11" width="6.76" height="7.27"/>
+      <polyline id="Support6" class="cls-3" points="192.69 7.33 174.94 26.43 181.3 26.43 199.45 14.6 199.45 7.33 192.69 7.33"/>
+      <rect id="SupportCap6" class="cls-1" x="192.69" y="7.33" width="6.76" height="7.27"/>
+      <polyline id="Support5" class="cls-3" points="160.26 7.33 143.54 25.78 149.21 25.9 167.02 14.6 167.02 7.33 160.26 7.33"/>
+      <rect id="SupportCap5" class="cls-1" x="160.26" y="7.33" width="6.76" height="7.27"/>
+      <polyline id="Support4" class="cls-3" points="128.94 7.33 114.59 25.3 120.36 25.3 135.7 14.6 135.7 7.33 128.94 7.33"/>
+      <rect id="SupportCap4" class="cls-1" x="128.94" y="7.33" width="6.76" height="7.27"/>
+      <polyline id="Support3" class="cls-3" points="101.37 8.37 89.66 24.67 96.29 24.8 108.13 15.64 108.13 8.37 101.37 8.37"/>
+      <rect id="SupportCap3" class="cls-1" x="101.37" y="8.37" width="6.76" height="7.27"/>
+      <polyline id="Support2" class="cls-3" points="64.53 10.96 57.22 24 63.93 24.13 71.29 18.23 71.29 10.96 64.53 10.96"/>
+      <rect id="SupportCap2" class="cls-1" x="64.53" y="10.96" width="6.76" height="7.27"/>
+      <polyline id="Support2-2" data-name="Support2" class="cls-3" points="29.24 11.98 22.41 23.43 28.86 23.37 36 19.25 36 11.98 29.24 11.98"/>
+      <rect id="SupportCap2-2" data-name="SupportCap2" class="cls-1" x="29.24" y="11.98" width="6.76" height="7.27"/>
+    </g>
+  </g>
+</svg>

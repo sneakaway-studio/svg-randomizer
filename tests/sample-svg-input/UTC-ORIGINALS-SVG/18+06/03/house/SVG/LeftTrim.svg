@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 982.72 24.93">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bac0cc;
+      }
+    </style>
+  </defs>
+  <g id="Lower_Trim" data-name="Lower Trim">
+    <polygon id="LeftTrim" class="cls-1" points=".05 0 0 24.93 982.72 16.44 982.72 6.11 440.05 8.96 440.05 0 .05 0"/>
+  </g>
+</svg>

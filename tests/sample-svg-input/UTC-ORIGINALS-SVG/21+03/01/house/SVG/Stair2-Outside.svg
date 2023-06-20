@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 406.38 56.66">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a1a7b4;
+      }
+
+      .cls-2 {
+        fill: #bac0cc;
+      }
+
+      .cls-3 {
+        fill: #575959;
+      }
+
+      .cls-4 {
+        fill: #767f84;
+      }
+    </style>
+  </defs>
+  <g id="Stairs-Outside">
+    <g id="Stair2-Outside">
+      <polygon class="cls-3" points="79.9 27.17 79.9 39.84 110.64 56.66 327.69 56.66 327.69 32.14 79.9 27.17"/>
+      <polygon class="cls-4" points="0 .26 0 13.48 108.85 32.14 108.85 16.2 0 .26"/>
+      <polygon class="cls-1" points="406.38 14.77 406.38 31.36 108.85 32.14 108.85 16.2 406.38 14.77"/>
+      <polygon class="cls-2" points="279.38 0 406.38 14.77 108.85 16.2 0 .26 279.38 0"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 197.19 34.18">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a1a7b4;
+      }
+
+      .cls-2 {
+        fill: #bac0cc;
+      }
+
+      .cls-3 {
+        fill: #303030;
+      }
+
+      .cls-4 {
+        fill: #5e6263;
+      }
+    </style>
+  </defs>
+  <g id="_2ndFloor" data-name="2ndFloor">
+    <g id="SkylightRim-2ndfloor">
+      <polygon class="cls-4" points="22.27 25 22.27 34.18 197.19 32.84 185.82 24.29 22.27 25"/>
+      <polygon class="cls-1" points="0 10.04 22.27 25 22.27 34.18 .03 20.49 0 10.04"/>
+      <polygon class="cls-3" points="0 5.73 22.27 20.44 22.27 15.89 174.87 16.05 185.82 24.29 22.27 25 0 10.04 0 5.73"/>
+      <polygon class="cls-2" points="0 0 22.27 15.89 22.27 20.44 0 5.73 0 0"/>
+    </g>
+  </g>
+</svg>

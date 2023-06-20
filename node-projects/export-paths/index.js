@@ -8,14 +8,15 @@ const path = require('path');
 // leave the project to get the files lib
 var FS_Files = require("../../../om-functions-js/lib/fs-files");
 
-const CONFIG = require('../../config.js');
-const fullSVGPath = CONFIG.FULL_SVG_PATH;
+ const CONFIG = require('../../config.js');
+ const fullSVGPath = CONFIG.FULL_SVG_PATH;
+
+
 
 var exports = module.exports = {};
 
 // 1. Get data from Google sheets...
 async function getDataFromGoogleSheets() {
-
 	// spreadsheet
 	// https://docs.google.com/spreadsheets/d/1-VmzIyWNhzmaAiSLaPCoY6ZnJaxl3G_bxcljgXgxWKU/edit#gid=225781419
 
@@ -38,10 +39,6 @@ async function getDataFromGoogleSheets() {
 	// run export-google-sheets
 	return await exportGoogleSheets.getData();
 	// console.log(dataArr);
-
-
-
-
 }
 
 
@@ -139,6 +136,14 @@ exports.getData = async (all = false) => {
 
 			// override so links to test files works
 // finalObj[key].filePath = `UTC-ORIGINALS-SVG/21+03/01/${dataArr[i].object}/SVG`;
+			// change path in CONFIG so it works on Owen's Macbook Pro and Joelle's Mac Pro
+			console.log(CONFIG.SVG_DIR);
+			finalObj[key].filePath = `${CONFIG.SVG_DIR}/${dataArr[i].dir}/${dataArr[i].num}/${dataArr[i].object}/SVG/`;
+
+
+			// override so links to test files works
+// finalObj[key].filePath = `UTC-ORIGINALS-SVG/21+03/01/${dataArr[i].object}/SVG`;
+
 
 			// fileNames
 			console.log(`Look up filenames ${fullSVGPath}/${finalObj[key].filePath}`);

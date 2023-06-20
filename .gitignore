@@ -16,5 +16,5 @@ credentials.json
 token.json
 .env
 config.js
-all-data.json
+data-tz.json
 data-all.json

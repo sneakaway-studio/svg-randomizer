@@ -15,12 +15,12 @@
 		// FULL_SVG_PATH: '/Users/joelledietrick/Dropbox (Davidson College)/Sneakaway Studio/Chasing the Sun/Artwork/UTC-ORIGINALS'
 
 		// Joelle Macbook Pro
-		FULL_SVG_PATH: '/Volumes/GoogleDrive-102724189768272292084/My\ Drive/Art\ \(Dietrick\ Studio\)/_Artwork\ Process/Chasing\ the\ Sun/Artwork/UTC-ORIGINALS',
+		FULL_SVG_PATH: '/Volumes/GoogleDrive-102724189768272292084/My\ Drive/Art\ \(Dietrick\ Studio\)/_Artwork\ Process/Chasing\ the\ Sun/Artwork/UTC-ORIGINALS-SVG',
 
 
 
-		// USE TEST DIRECTORY (DEV ONLY)
-		USE_TEST_SVG_DIR: 1,
+		// DIRECTORY (CHANGE FOR DEV)
+		SVG_DIR: "UTC-ORIGINALS",
     };
     if (typeof module === 'object' && module && typeof module.exports === 'object') {
         module.exports = config;

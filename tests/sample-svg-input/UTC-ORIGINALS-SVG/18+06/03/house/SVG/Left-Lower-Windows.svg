@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390.88 65.41">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bac0cc;
+      }
+
+      .cls-2 {
+        fill: #dfe1e6;
+      }
+
+      .cls-3 {
+        fill: #424343;
+      }
+    </style>
+  </defs>
+  <g id="Left-Lower-WIndows">
+    <g id="Left-Lower-Windows">
+      <polyline id="Insidewindow1" class="cls-3" points="30.91 13.7 47.56 13.7 46.85 45.06 30.91 44.96"/>
+      <polygon id="Window1Shadow" class="cls-1" points="30.91 13.7 10.21 13.7 10.21 48.67 46.85 48.67 46.85 45.06 30.91 44.96 30.91 13.7"/>
+      <polygon id="WIndow1-leftlower" class="cls-2" points=".11 6.85 11.16 6.85 11.16 48.67 57.29 48.67 57.29 58.19 0 58.19 .11 6.85"/>
+      <polygon id="Window1-leftlower2" class="cls-2" points=".11 6.85 57.29 6.85 57.29 48.67 46.85 48.67 47.56 13.7 .11 13.7 .11 6.85"/>
+      <polygon id="Insidewindow2" class="cls-3" points="86.82 17.22 118.81 17.03 118.81 43.45 86.82 43.05 86.82 17.22"/>
+      <polygon id="Window2Shadow" class="cls-1" points="86.82 15.04 73.98 15.04 72.91 50.44 118.81 50.44 118.81 43.45 86.82 43.05 86.82 15.04"/>
+      <polygon id="WIndow2-leftlower" class="cls-2" points="66.36 8.62 77.41 8.62 77.41 46.79 131.35 46.65 131.35 55.46 66.26 55.46 66.36 8.62"/>
+      <polygon id="Window2-leftlower2" class="cls-2" points="74.16 8.62 131.35 8.62 131.35 55.46 118.81 55.46 118.81 17.03 74.16 17.3 74.16 8.62"/>
+      <polygon id="Insidewindow3" class="cls-3" points="159.64 26.1 203.44 25.9 203.44 53.08 159.64 52.67 159.64 26.1"/>
+      <polygon id="Window3Shadow" class="cls-1" points="159.81 25.24 146.97 25.24 145.9 60.64 205.07 62.15 205.07 52.25 159.81 52.25 159.81 25.24"/>
+      <polygon id="WIndow3-leftlower" class="cls-2" points="139.3 16.64 152.79 16.64 152.56 56.56 214.42 56.33 214.42 65.41 139.2 65.41 139.3 16.64"/>
+      <polygon id="Window3-leftlower2" class="cls-2" points="139.3 16.64 214.42 16.06 214.42 62.89 202.98 62.89 203.44 25.82 139.28 26.63 139.3 16.64"/>
+      <polygon id="Insidewindow4" class="cls-3" points="238.14 15.49 268.88 15.72 268.41 47.35 237.68 46.41 238.14 15.49"/>
+      <polygon id="Window4Shadow" class="cls-1" points="238.47 15.01 228.06 15.01 228.06 49.98 269.01 49.98 268.38 45.76 238.07 46.14 238.47 15.01"/>
+      <polygon id="WIndow4-leftlower" class="cls-2" points="221.42 9.09 228.34 9.09 228.34 49.01 274.76 48.89 274.76 55.77 221.33 55.89 221.42 9.09"/>
+      <polygon id="Window4-leftlower2" class="cls-2" points="221.33 8.51 274.76 7.97 274.76 51.07 267.26 51.07 268.04 16.06 221.32 16.69 221.33 8.51"/>
+      <polygon id="Window5Shadow" class="cls-1" points="301.73 8.89 289.81 8.89 289.81 55.89 321.56 55.89 322.16 53 301.57 52.83 301.73 8.89"/>
+      <polygon id="Insidewindow5" class="cls-3" points="295.71 8.32 325.54 7.97 325.54 57.22 295.71 56.47 295.71 8.32"/>
+      <polygon id="WIndow5-leftlower" class="cls-2" points="282.66 9.09 289.58 9.09 289.81 55.89 328.88 55.42 328.83 64.04 282.55 64.04 282.66 9.09"/>
+      <polygon id="Window5-leftlower2" class="cls-2" points="282.59 0 329.18 .11 328.83 64.04 321.56 57.98 321.56 9.65 282.57 9.83 282.59 0"/>
+      <polygon id="Insidewindow6" class="cls-3" points="352.86 13.51 383.6 13.82 383.29 34.7 352.55 33.93 352.86 13.51"/>
+      <polygon id="Window6Shadow" class="cls-1" points="359.45 14.54 352.4 14.54 352.5 34.7 376.31 34.7 376.37 31.6 359.63 31.6 359.45 14.54"/>
+      <polygon id="WIndow6-leftlower" class="cls-2" points="342.07 9.91 352.54 9.79 352.54 34.76 390.88 34.7 390.88 47.77 342.07 47.71 342.07 9.91"/>
+      <polygon id="Window6-leftlower2" class="cls-2" points="342.07 9.91 390.88 9.79 390.76 47.77 376.37 47.77 376.37 15.67 342.6 15.92 342.07 9.91"/>
+    </g>
+  </g>
+</svg>

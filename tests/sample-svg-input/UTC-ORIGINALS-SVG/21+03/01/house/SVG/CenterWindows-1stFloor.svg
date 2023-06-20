@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 647.26 242.32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #303030;
+      }
+    </style>
+  </defs>
+  <g id="_1stFloor" data-name="1stFloor">
+    <g id="CenterWindows-1stFloor">
+      <path class="cls-1" d="M132.39,.1L0,.13,1.81,242.32H133.6L132.39,.1ZM3.35,240.76L5.65,4.35H127.94l.43,236.95-125.03-.54Z"/>
+      <path class="cls-1" d="M646.94,0L217.28,.1l-.39,242.18h430.36l-.31-242.28ZM221.87,239.76V4.12l209.94-.46,.23,236.1H221.87Zm421.03,0h-207.65l.92-236.1,206.96,.23-.23,235.87Z"/>
+    </g>
+  </g>
+</svg>

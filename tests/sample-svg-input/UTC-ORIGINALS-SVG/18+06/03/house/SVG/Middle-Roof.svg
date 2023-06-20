@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1016.18 33.36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #575959;
+      }
+
+      .cls-2 {
+        fill: #767f84;
+      }
+    </style>
+  </defs>
+  <g id="Middle-roof">
+    <g id="Middle-Roof">
+      <polygon id="MidRoof-base" class="cls-2" points="0 26.32 0 0 1016.18 19.97 977.1 33.36 0 26.32"/>
+      <polygon id="Support-1" class="cls-1" points="39.08 10.04 70.27 26.83 54.74 26.32 38.71 23.3 39.08 10.04"/>
+      <polygon id="Support-2" class="cls-1" points="108.61 8.76 128.33 27.25 119.52 27.18 108.61 19.66 108.61 8.76"/>
+      <polygon id="Support-3" class="cls-1" points="172.31 12.8 179.75 12.8 179.75 27.62 172.31 27.56 172.31 12.8"/>
+      <polygon id="Support-4" class="cls-1" points="230.92 11.5 239.33 11.5 238.8 28.08 230.92 27.99 230.92 11.5"/>
+      <rect id="Support-5" class="cls-1" x="297.44" y="9.88" width="5.72" height="18.59"/>
+      <polygon id="Support-6" class="cls-1" points="356.38 9.46 362.4 9.46 362.57 28.93 356.38 28.93 356.38 9.46"/>
+      <polygon id="Support-7" class="cls-1" points="424.83 12.71 431.28 12.71 431.28 29.43 424.83 29.38 424.83 12.71"/>
+      <polygon id="Support-8" class="cls-1" points="486.98 11.9 486.98 22.04 476.17 29.75 468.94 29.7 486.98 11.9"/>
+      <polygon id="Support-9" class="cls-1" points="552.33 18.29 552.33 23.89 529.92 30.32 521.3 30.32 552.33 18.29"/>
+      <polygon id="Support-10" class="cls-1" points="598.98 18.29 598.98 23.89 576.57 30.32 567.95 30.32 598.98 18.29"/>
+      <polygon id="Support-11" class="cls-1" points="639.54 18.58 639.54 24.18 617.13 30.62 608.51 30.62 639.54 18.58"/>
+      <polygon id="Support-12" class="cls-1" points="677.04 18.92 677.04 24.52 654.64 30.96 646.02 30.96 677.04 18.92"/>
+      <polygon id="Support-13" class="cls-1" points="720.4 19.3 720.42 24.9 698.03 31.42 689.41 31.45 720.4 19.3"/>
+      <polygon id="Support-14" class="cls-1" points="764.82 19.95 764.82 25.55 742.41 31.99 733.79 31.99 764.82 19.95"/>
+      <polygon id="Support-15" class="cls-1" points="807.79 19.95 807.79 25.55 785.38 31.99 776.77 31.99 807.79 19.95"/>
+      <polygon id="Support-16" class="cls-1" points="852.69 20.35 852.69 25.95 830.28 32.38 821.66 32.38 852.69 20.35"/>
+      <polygon id="Support-17" class="cls-1" points="896.95 20.79 896.95 26.39 874.54 32.83 865.92 32.83 896.95 20.79"/>
+      <polygon id="Support-18" class="cls-1" points="935.07 20.79 935.07 26.39 912.67 32.83 904.05 32.83 935.07 20.79"/>
+      <polygon id="Support-19" class="cls-1" points="960.03 21.32 960.03 26.92 937.62 33.36 929 33.36 960.03 21.32"/>
+      <polygon id="Support-20" class="cls-1" points="989.57 21.32 989.57 26.92 967.16 33.36 958.54 33.36 989.57 21.32"/>
+    </g>
+  </g>
+</svg>

@@ -50,7 +50,7 @@ module.exports = function(app) {
 
 	// get local data
 	app.get('/api/getLocalData', async (req, res) => {
-		let data = await getLocalJson('../export-paths/data/data-all.json');
+		let data = await getLocalJson('../export-paths/data/data-tz.json');
 		// console.log(1,data);
 		// parse the serialized json
 		data = JSON.parse(data);

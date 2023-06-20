@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 447.1 147.22">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a1a7b4;
+      }
+
+      .cls-2 {
+        fill: #bac0cc;
+      }
+    </style>
+  </defs>
+  <g id="Right-Lower">
+    <g id="Right-Lower-Wall">
+      <polygon id="Background-rightlower" class="cls-1" points="2.46 1.78 447.1 0 444.79 136.45 0 147.22 2.46 1.78"/>
+      <polygon id="PopOut-rightlower" class="cls-2" points="2.46 1.78 0 147.22 444.79 136.45 447.1 0 410.39 .15 413.01 117.88 342.27 118.28 341.37 0 310.23 0 308.94 117.88 255.39 118.68 256.19 .16 127.28 1.28 127.85 118.68 46.85 116.84 46.84 1.97 2.46 1.78"/>
+    </g>
+  </g>
+</svg>

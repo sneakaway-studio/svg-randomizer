@@ -4,12 +4,11 @@
 
 		// PROJECT-SPECIFIC PATHS
 
+		ALL_DATA_PATH_RELATIVE_RANDOMIZER: 'http://localhost:3000/api/getLocalData',
+		ALL_DATA_API_URL: 'http://localhost:3000/api/saveSheetData',
 
-		ALL_DATA_PATH_RELATIVE_RANDOMIZERS: '../../../node-projects/export-paths/data/data-tz.json',
-		ALL_DATA_API_URL: 'http://localhost:3000/api/refreshLocalDataFromSheet',
-
-		BASE_PATH_RELATIVE_RANDOMIZERS: "../../",
-		TEST_DIR_PATH_RELATIVE_RANDOMIZERS: "../../tests/sample-svg-input/",
+		BASE_PATH_RELATIVE_RANDOMIZER: "../../",
+		TEST_DIR_PATH_RELATIVE_RANDOMIZER: "../../tests/sample-svg-input/",
 
 
 
@@ -17,13 +16,13 @@
 
 
         relativeFilePathFromKeyObj: function(keyObj) {
-            return this.TEST_DIR_PATH_RELATIVE_RANDOMIZERS + data[keyObj.key].filePath + data[keyObj.key].fileNames[keyObj.fileNameIndex];
+            return this.TEST_DIR_PATH_RELATIVE_RANDOMIZER + data[keyObj.key].filePath + data[keyObj.key].fileNames[keyObj.fileNameIndex];
         },
 
         /**
          * 	Refresh the data from the sheet and then return latest
          */
-        refreshLocalDataFromSheet: async function(path = this.ALL_DATA_API_URL) {
+        saveSheetData: async function(path = this.ALL_DATA_API_URL) {
             return fetch(path)
                 .then(response => response.json())
                 .then(_d => {
@@ -34,13 +33,19 @@
         /**
          * 	fetch all local json
          */
-        getAllData: async function(path = this.ALL_DATA_PATH_RELATIVE_RANDOMIZERS) {
+        getAllData: async function(path = this.ALL_DATA_PATH_RELATIVE_RANDOMIZER) {
             return fetch(path)
-                .then(response => response.json())
+                .then(response => {
+                    
+                    console.log(response);
+                    return response.json()
+                })
                 .then(_d => {
-                    // console.log(_d);
                     return _d;
-                });
+                })
+                .catch(err => {
+                    console.error(err);
+                })
         },
         // get data file
         // let d = await getData();

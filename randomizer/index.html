@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>svg</title>
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<style>
+		body {
+			background-color: #000000;
+		}
+
+		svg,
+		img {
+			/* position: absolute; */
+			/* max-width: 300px;
+			max-height: 200px; */
+			width: 100%
+		}
+	</style>
+</head>
+
+<body>
+	<div class="svgContainer"></div>
+
+	<div class="controls controls-left">
+		<input class="countInput" style="width:60px; border:none;">
+		<button class="updateData">updateData</button>
+		<button class="randomize">randomize</button>
+		<button class="saveSVGstring">saveSVG</button>
+	</div>
+
+	<div class="controls controls-right">
+		<a href="http://localhost:3000/api/" target="_blank">hello</a>
+		<a href="http://localhost:3000/api/getLocalData" target="_blank">getLocalData</a>
+		<a href="http://localhost:3000/api/saveSheetData" target="_blank">saveSheetData</a>
+		<a href="https://github.com/sneakaway-studio/svg-randomizer" target="_blank">github</a>
+		<a href="https://docs.google.com/spreadsheets/d/1-VmzIyWNhzmaAiSLaPCoY6ZnJaxl3G_bxcljgXgxWKU/edit#gid=225781419" target="_blank">CTS-data</a>
+	</div>
+
+
+
+
+	<script src="assets/libs/jquery-3.2.1.min.js"></script>
+	<script src="assets/js/functions/fs-dates.js"></script>
+	<script src="assets/js/functions/fs-objects.js"></script>
+	<script src="assets/js/functions/fs-numbers.js"></script>
+	<script src="assets/js/functions/fs-html.js"></script>
+	<script src="api/config.js"></script>
+	<script src="assets/js/globals.js"></script>
+
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

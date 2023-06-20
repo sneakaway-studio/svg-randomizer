@@ -15,8 +15,9 @@
 
 ### Step 0. Open Project
 
-1. Open Github Desktop and choose the correct repository (svg-randomizer)
-1. Fetch to see if there changes and pull if it shows changes (not "Pull Request" which is different)
+1. In Github Desktop, select the repository `svg-randomizer`
+1. Click "Fetch" to see if there are changes, then pull if it shows changes (not "Pull Request", which is different)
+1. Open VS Code (from Github Desktop use Shift + Command + A)
 
 
 ### Step 1. Update Spreadsheet Data
@@ -32,7 +33,7 @@ Column | Description | Default value
 
 ### Step 2. Export Spreadsheet Data
 
-Skip this step—the fileserver now lets you export by clicking a button. 
+Skip this step (the fileserver now lets you export by clicking a button). 
 
 > Testing notes: 
 > - Exports data from spreadsheet to `/node-projects/export-paths/data/data-tz.json`
@@ -41,10 +42,10 @@ Skip this step—the fileserver now lets you export by clicking a button.
 
 ### Step 3: Start the file-server
 
-1. Open VS Code (from Github Desktop use Shift + Command + A)
+1. Open VS Code (see #0)
 1. Right click on `/node-projects/file-server` and choose "Open in Integrated Terminal" to open a terminal in VS Code.
 1. Type `npm run start` and hit return to start the test server. 
-1. View randomizer http://localhost:3000/randomizers/
+1. View randomizer http://localhost:3000/randomizer
 1. Print page to make image
 
 

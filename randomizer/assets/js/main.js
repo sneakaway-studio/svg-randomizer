@@ -319,7 +319,7 @@ document.querySelector(".updateData").addEventListener("click", function() {
 
 
 async function updateDataAsync(btn) {
-    data = await globals.refreshLocalDataFromSheet();
+    data = await globals.saveSheetData();
     init();
     console.log("Data updated");
     showSuccessButton(btn);

@@ -13,11 +13,17 @@ const port = 3000;
 const Middleware = require("./app/middleware.js");
 app.use(Middleware.showRequests);
 
+
+
 // make whole dir 'public' for testing
-app.use(express.static('../../'));
+app.use(express.static('../../randomizer'));
+// make special files available inside server
+app.use('/api/config.js', express.static('../../config.js'));
 // base dir
 const CONFIG = require('../../config.js');
 app.use('/files', express.static(CONFIG.FULL_SVG_PATH));
+
+
 
 // Middleware to turn off caching (having issues with spreadsheet data not refreshing)
 const nocache = require('nocache');

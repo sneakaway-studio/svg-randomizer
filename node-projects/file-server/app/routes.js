@@ -27,7 +27,7 @@ module.exports = function(app) {
 
 	// website home page
 	app.get('/', (req, res) => {
-		 res.sendFile(path.resolve((__dirname +'../../../../randomizers/index.html')));
+		 res.sendFile(path.resolve((__dirname +'../../../../randomizerindex.html')));
 	});
 
 
@@ -42,7 +42,7 @@ module.exports = function(app) {
 	});
 
 	// get remote data from google sheet
-	app.get('/api/refreshLocalDataFromSheet', async (req, res) => {
+	app.get('/api/saveSheetData', async (req, res) => {
 		let result = await getDataFromSheet();
 		// return the data
 		res.status(200).json(result);

@@ -13,6 +13,12 @@
 ## Instructions
 
 
+### Step 0. Open Project
+
+1. Open Github Desktop and choose the correct repository (svg-randomizer)
+1. Fetch to see if there changes and pull if it shows changes (not "Pull Request" which is different)
+
+
 ### Step 1. Update Spreadsheet Data
 
 Column | Description | Default value
@@ -26,27 +32,26 @@ Column | Description | Default value
 
 ### Step 2. Export Spreadsheet Data*
 
-1. Open [Atom](https://atom.io/)
-1. Open `/node-projects/export-paths` in Terminal (right+click and choose "Open Terminal Here")
-1. Type `node index.js` and hit return. This exports data from the spreadsheet to `/node-projects/export-paths/data/all-data.json`
-1. To re-export data, press the up arrow and return each time.
+The fileserver now lets you export by clicking a button.
+
+<!-- 1. In Github Desktop, open repository in VS Code (Shift + Command + A)
+1. Right click on `/node-projects/export-paths` and choose "Open in Integrated Terminal" to open a terminal in VS Code.
+1. Type `node index.js` and hit return. This exports data from the spreadsheet to `/node-projects/export-paths/data/data-tz.json`
+1. To re-export data, press the up arrow and return each time. -->
 
 
 ### Step 3: Start the file-server*
 
-1. Open [Atom](https://atom.io/)
-1. Open `/node-projects/file-server` in separate Terminal window (right+click Open Terminal Here)
+1. Open VS Code
+1. Right click on `/node-projects/file-server` and choose "Open in Integrated Terminal" to open a terminal in VS Code.
 1. Type `node server.js` and hit return
-1. This starts the test server. Leave this running in a separate Terminal window.
+1. This starts the test server. 
 1. View randomizer http://localhost:3000/randomizers/
 1. Print page to make image
 
 
 
-
-
 ### Step 4: Export SVG
-
 
 #### SVG Copy / Paste method
 

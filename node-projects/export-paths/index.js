@@ -4,13 +4,14 @@
 
 const fs = require('fs').promises;
 const path = require('path');
-var FS_Files = require("../om-functions-js/fs-files");
+
+// leave the project to get the files lib
+var FS_Files = require("../../../om-functions-js/lib/fs-files");
 
 const CONFIG = require('../../config.js');
 const fullSVGPath = CONFIG.FULL_SVG_PATH;
 
 var exports = module.exports = {};
-
 
 
 async function getDataFromGoogleSheets() {
@@ -19,9 +20,8 @@ async function getDataFromGoogleSheets() {
 	// https://docs.google.com/spreadsheets/d/1-VmzIyWNhzmaAiSLaPCoY6ZnJaxl3G_bxcljgXgxWKU/edit#gid=225781419
 
 
-
-
 	// the google sheets api method ...
+	//
 	// // require file
 	// const exportGoogleSheets = require('../export-google-sheets/quickstart.js');
 	// // run export-google-sheets
@@ -31,7 +31,7 @@ async function getDataFromGoogleSheets() {
 
 
 
-	// the google-sheets as CSV method
+	// b. Method using a public Google sheet and CSV:
 
 	// require file
 	const exportGoogleSheets = require('../export-google-sheets');
@@ -45,42 +45,35 @@ async function getDataFromGoogleSheets() {
 }
 
 
-
-
-
-
-
-
-exports.getData = async () => {
+/**
+ * Main function to get data, called from outside module
+ */
+exports.getData = async (all = false) => {
 	try {
-
-
-
-
-
 		let dataArr = [],
 			finalObj = {};
 
-
-
 		dataArr = await getDataFromGoogleSheets();
+	} catch (err) {
+		console.error("getDataFromGoogleSheets()", err);
+	}
 
-		// make sure data is imported
-		if (!dataArr) {
-			console.error("NO DATA FOUND");
-			return;
-		}
-
-
-
-		// 2. LOOP THROUGH ALL TIMEZONES
-
-		let totalRecordsInSpreadsheet = dataArr.length,
-			assetsFoundPerRowTotal = 0,
-			currentTZ = "";
+	// make sure data is imported
+	if (!dataArr) {
+		console.error("NO DATA FOUND");
+		return;
+	}
 
 
 
+	// 2. LOOP THROUGH ALL TIMEZONES
+
+	let totalRecordsInSpreadsheet = dataArr.length,
+		assetsFoundPerRowTotal = 0,
+		currentTZ = "";
+
+
+	if (!all) {
 		// first loop (in reverse) to remove those we don't want ...
 		for (var i = dataArr.length - 1; i >= 0; i--) {
 			// console.log(dataArr[i]);
@@ -89,11 +82,12 @@ exports.getData = async () => {
 				dataArr.splice(i, 1);
 			}
 		}
-		console.log(`\n#############################################################################`);
-		console.log(`Compiling ${dataArr.length} (out of ${totalRecordsInSpreadsheet} total) rows`);
-		console.log(`#############################################################################\n`);
+	}
+	console.log(`\n#############################################################################`);
+	console.log(`Compiling ${dataArr.length} (out of ${totalRecordsInSpreadsheet} total) rows`);
+	console.log(`#############################################################################\n`);
 
-
+	try {
 		// loop through all rows
 		for (let i = 0; i < dataArr.length; i++) {
 			if (!dataArr[i]) continue;
@@ -137,15 +131,17 @@ exports.getData = async () => {
 
 			// 3. GET ALL ASSET PATHS
 
-			// test path on Owen's Macbook Pro (override)
-			if (CONFIG.USE_TEST_SVG_DIR)
-				finalObj[key].filePath = `UTC-ORIGINALS_03-03_01/${dataArr[i].object}/SVG/`;
-			else // Joelle's Mac Pro
-				finalObj[key].filePath = `${dataArr[i].dir}/${dataArr[i].num}/${dataArr[i].object}/SVG/`;
+			// change path in CONFIG so it works on Owen's Macbook Pro and Joelle's Mac Pro
+			console.log(CONFIG.SVG_DIR);
+			finalObj[key].filePath = `${CONFIG.SVG_DIR}/${dataArr[i].dir}/${dataArr[i].num}/${dataArr[i].object}/SVG/`;
+
+
+			// override so links to test files works
+			// finalObj[key].filePath = `UTC-ORIGINALS-SVG/21+03/01/${dataArr[i].object}/SVG`;
 
 			// fileNames
-			// console.log(`add the filenames ${fullSVGPath}/${finalObj[key].filePath}`);
-			finalObj[key].fileNames = await FS_Files.getFilesInDir(`${fullSVGPath}/${finalObj[key].filePath}`);
+			console.log(`add the filenames ${fullSVGPath}/${finalObj[key].filePath}`);
+			finalObj[key].fileNames = await FS_Files.getFilesInDir(`${fullSVGPath}/${finalObj[key].filePath}`, "files", "fileExts", ".svg");
 			// fileCount
 			finalObj[key].fileCount = finalObj[key].fileNames.length;
 
@@ -158,15 +154,22 @@ exports.getData = async () => {
 		}
 		// console.log(finalObj);
 
+	} catch (err) {
+		console.error("ERROR => LOOPING THROUGH RESULTS", err);
+	}
 
 
-		// 3. WRITE THE DATA
-		await fs.writeFile(path.resolve(__dirname, './data/all-data.json'), JSON.stringify(finalObj));
+
+	// 3. WRITE THE DATA
+	if (all)
+		await fs.writeFile(path.resolve(__dirname, './data/data-all.json'), JSON.stringify(finalObj));
+	else
+		await fs.writeFile(path.resolve(__dirname, './data/data-tz.json'), JSON.stringify(finalObj));
 
 
 
-		// 4. REPORT
-
+	// 4. REPORT
+	try {
 		// make the report a little nicer by removing the long list of files
 		let temp = JSON.parse(JSON.stringify(finalObj));
 		for (var o in temp) {
@@ -174,15 +177,14 @@ exports.getData = async () => {
 		}
 		console.log(temp);
 		console.log(`🐋 DATA EXPORT FINISHED ... rows: ${Object.keys(finalObj).length}, assets: ${assetsFoundPerRowTotal}\n\n`);
-
-
-		return finalObj;
-
 	} catch (err) {
-		console.error(err);
+		console.error("ERROR => IN REPORT", err);
 	}
+
+	return finalObj;
+
 };
-// exports.getData();
+// exports.getData(true);
 
 
 

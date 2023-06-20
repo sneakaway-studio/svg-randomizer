@@ -19,7 +19,7 @@ var options = {
 var server = https.createServer(options, app);
 // start listening for requests
 server.listen(port, () => {
-	console.log(`Randomizer is live at this address: https://localhost:${port}/randomizers/`);
+	console.log(`Randomizer is live at this address: https://localhost:${port}/randomizer`);
 });
 
 // export app for heroku

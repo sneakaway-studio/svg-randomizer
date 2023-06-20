@@ -13,6 +13,13 @@
 ## Instructions
 
 
+### Step 0. Open Project
+
+1. In Github Desktop, select the repository `svg-randomizer`
+1. Click "Fetch" to see if there are changes, then pull if it shows changes (not "Pull Request", which is different)
+1. Open VS Code (from Github Desktop use Shift + Command + A)
+
+
 ### Step 1. Update Spreadsheet Data
 
 Column | Description | Default value
@@ -24,35 +31,28 @@ Column | Description | Default value
 `placeHolder` | A google sheets hack. Any data is fine. | `0`
 
 
-### Step 2. Export Spreadsheet Data*
+### Step 2. Export Spreadsheet Data
 
-1. Open [Atom](https://atom.io/)
-1. Open `/node-projects/export-paths` in Terminal (right+click and choose "Open Terminal Here")
-1. Type `node index.js` and hit return. This exports data from the spreadsheet to `/node-projects/export-paths/data/data-tz.json`
-1. To re-export data, press the up arrow and return each time.
+Skip this step (the fileserver now lets you export by clicking a button). 
+
+> Testing notes: 
+> - Exports data from spreadsheet to `/node-projects/export-paths/data/data-tz.json`
+> - To start nodemon w/ignore flags use: `npm run start-dev` 
 
 
-### Step 3: Start the file-server*
+### Step 3: Start the file-server
 
-1. Open [Atom](https://atom.io/)
-1. Open `/node-projects/file-server` in separate Terminal window (right+click Open Terminal Here)
-1. Type `node server.js` and hit return
-1. This starts the test server. Leave this running in a separate Terminal window.
-1. View randomizer http://localhost:3000/randomizers/
+1. Open VS Code (see #0)
+1. Right click on `/node-projects/file-server` and choose "Open in Integrated Terminal" to open a terminal in VS Code.
+1. Type `npm run start` and hit return to start the test server. 
+1. View randomizer http://localhost:3000/randomizer
 1. Print page to make image
-
-
 
 
 
 ### Step 4: Export SVG
 
-
-#### SVG Copy / Paste method
-
-1. Go to http://localhost:3000/randomizers/svg-paste/
-1. Inspect the page and search for "SVG" in the code
-1. Click to copy / paste svg code
+1. Click the button
 
 
 
@@ -69,7 +69,18 @@ Column | Description | Default value
 
 
 
+## Notes
 
-## Working with Illustrator
+### Working with Illustrator
 
 - Illustrator does not support using CSS inside SVGs. You must use the attributes which are built-in
+
+
+### Save an SVG from a web page using copy / paste
+
+1. Go to the URL
+1. Inspect the page and search for "SVG" in the code
+1. Right click to copy svg code to clipboard
+1. Paste svg code in a text file
+
+

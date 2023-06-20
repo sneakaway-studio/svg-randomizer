@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@omundy/om-functions-js": "^1.1.0",
     "fs-extra": "^10.1.0",
     "sharp": "^0.31.1"
   }

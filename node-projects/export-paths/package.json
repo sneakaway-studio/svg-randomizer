@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "node server.js"
+		"start": "node server.js",
+		"start-dev": "nodemon --ignore ./data/ --inspect index.js"
 	},
 	"author": "",
 	"license": "ISC",
